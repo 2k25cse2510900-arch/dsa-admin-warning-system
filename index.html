@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d0e12">
+  <title>DSA Admin Warning System</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="landing" aria-labelledby="page-title">
+    <div class="warning-tape warning-tape-top" aria-hidden="true">
+      <div class="tape-track">
+        <span>⚠ ADMIN NOTICE &#8226; NO DSA PROOF DETECTED &#8226; ADMIN NOTICE &#8226; CRITICAL STREAK ALERT &#8226; ADMIN NOTICE &#8226; NO DSA PROOF DETECTED &#8226;</span>
+        <span>⚠ ADMIN NOTICE &#8226; NO DSA PROOF DETECTED &#8226; ADMIN NOTICE &#8226; CRITICAL STREAK ALERT &#8226; ADMIN NOTICE &#8226; NO DSA PROOF DETECTED &#8226;</span>
+      </div>
+    </div>
+
+    <section class="warning-card">
+      <div class="status"><span class="status-dot" aria-hidden="true"></span> SYSTEM MONITORING: ACTIVE</div>
+      <div class="icon" aria-hidden="true">&#9888;</div>
+      <p class="eyebrow">A friendly reminder from the DSA department</p>
+      <h1 id="page-title">DSA ADMIN<br><span>WARNING SYSTEM</span></h1>
+      <p class="subtitle">No DSA proof? The admin has noticed.</p>
+      <button id="activate-button" type="button">
+        <span>I'M NOT GUILTY!</span>
+        <span class="btn-arrow" aria-hidden="true">&#8599;</span>
+      </button>
+      <p class="small-print">This is your totally official, mildly dramatic notice.</p>
+    </section>
+
+    <section id="warning-stage" class="warning-stage" aria-label="Warning sequence" aria-live="polite" hidden></section>
+
+    <section id="chase-screen" class="chase-screen" aria-labelledby="chase-title" hidden>
+      <div class="chase-badge">ADMIN STATUS: PATIENCE DEPLETED</div>
+      <h2 id="chase-title">ADMIN HAS LOST PATIENCE!</h2>
+      <p class="chase-caption">The DSA proof is still missing. Run for your streak!</p>
+      <div class="chase-scene" aria-label="The participant runs while the DSA admin chases them" role="img">
+        <div class="scene-skyline" aria-hidden="true">
+          <div class="digital-grid"></div>
+          <div class="floating-code">{ } [ ] ( ) &lt; &gt; ;</div>
+        </div>
+        <div class="speed-lines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="chase-track">
+          <!-- PARTICIPANT CARTOON SVG -->
+          <svg class="chase-character participant" viewBox="0 0 100 130" aria-hidden="true">
+            <ellipse class="char-shadow" cx="50" cy="124" rx="28" ry="5" fill="#000000" opacity="0.45"/>
+            <!-- Back leg -->
+            <path d="M42 84 L26 106 L12 112" fill="none" stroke="#2563eb" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 110 L18 110 L20 115 L8 115 Z" fill="#facc15" stroke="#0f172a" stroke-width="1.8"/>
+            <!-- Back arm -->
+            <path d="M36 60 L18 48 L10 56" fill="none" stroke="#fcd34d" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Backpack -->
+            <rect x="22" y="58" width="12" height="24" rx="4" fill="#475569" stroke="#1e293b" stroke-width="2"/>
+            <path d="M26 64 L30 64" stroke="#facc15" stroke-width="2" stroke-linecap="round"/>
+            <!-- Torso & Hoodie -->
+            <path d="M34 54 L27 88 L73 88 L66 54 Z" fill="#3b82f6" stroke="#1d4ed8" stroke-width="3" stroke-linejoin="round"/>
+            <path d="M38 72 L62 72 L58 84 L42 84 Z" fill="#2563eb"/>
+            <!-- 0 DSA Badge -->
+            <rect x="36" y="59" width="28" height="11" rx="3" fill="#0f172a" stroke="#facc15" stroke-width="1.5"/>
+            <text x="50" y="67" text-anchor="middle" font-family="monospace" font-size="7" font-weight="900" fill="#facc15">0 DSA</text>
+            <!-- Front leg -->
+            <path d="M58 84 L72 102 L88 106" fill="none" stroke="#3b82f6" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M84 104 L96 104 L98 109 L83 109 Z" fill="#ef4444" stroke="#0f172a" stroke-width="1.8"/>
+            <!-- Neck & Head -->
+            <rect x="46" y="46" width="8" height="9" fill="#fcd34d"/>
+            <ellipse cx="52" cy="37" rx="17" ry="16" fill="#fcd34d" stroke="#b45309" stroke-width="2.5"/>
+            <!-- Panicked Sweat Bead -->
+            <path d="M28 28 Q20 25 24 32 Q28 31 28 28 Z" fill="#38bdf8" stroke="#0284c7" stroke-width="1.5"/>
+            <!-- Messy Hair -->
+            <path d="M34 35 C32 18, 52 14, 69 22 C73 26, 72 35, 68 38 C64 28, 54 24, 42 27 C38 29, 35 33, 34 35 Z" fill="#334155" stroke="#0f172a" stroke-width="2"/>
+            <path d="M42 21 L37 13 L47 18 M53 17 L56 10 L60 18" stroke="#334155" stroke-width="3" stroke-linecap="round"/>
+            <!-- Panicked Eyes Looking Back at Admin -->
+            <ellipse cx="44" cy="36" rx="5" ry="6" fill="#ffffff" stroke="#0f172a" stroke-width="1.5"/>
+            <circle cx="41.5" cy="36" r="2.2" fill="#0f172a"/>
+            <ellipse cx="58" cy="36" rx="5" ry="6" fill="#ffffff" stroke="#0f172a" stroke-width="1.5"/>
+            <circle cx="55.5" cy="36" r="2.2" fill="#0f172a"/>
+            <!-- Terrified Eyebrows -->
+            <path d="M40 28 Q44 24 48 27 M54 27 Q58 24 62 28" fill="none" stroke="#78350f" stroke-width="2" stroke-linecap="round"/>
+            <!-- Screaming Mouth -->
+            <ellipse cx="49" cy="46" rx="6" ry="5" fill="#7f1d1d" stroke="#450a0a" stroke-width="1.5"/>
+            <path d="M46 48 Q49 46 52 48 Q49 51 46 48 Z" fill="#f43f5e"/>
+            <!-- Front arm -->
+            <path d="M66 58 L82 48 L94 56" fill="none" stroke="#fcd34d" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+
+          <!-- ADMIN CARTOON SVG -->
+          <svg class="chase-character admin" viewBox="0 0 100 130" aria-hidden="true">
+            <ellipse class="char-shadow" cx="50" cy="124" rx="32" ry="5.5" fill="#000000" opacity="0.45"/>
+            <!-- Back leg -->
+            <path d="M40 85 L24 108 L12 112" fill="none" stroke="#0f172a" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 110 L22 110 L24 116 L8 116 Z" fill="#020617"/>
+            <!-- Torso & Suit -->
+            <path d="M30 52 L24 88 L76 88 L70 52 Z" fill="#1e293b" stroke="#0f172a" stroke-width="3" stroke-linejoin="round"/>
+            <polygon points="44,52 56,52 50,68" fill="#f8fafc"/>
+            <!-- Red necktie -->
+            <polygon points="48,58 52,58 54,78 50,84 46,78" fill="#dc2626"/>
+            <!-- Admin badge -->
+            <polygon points="62,58 66,56 68,62 64,66 60,62" fill="#facc15" stroke="#ca8a04" stroke-width="1"/>
+            <!-- Giant Red DSA Pen -->
+            <path d="M32 58 L20 42 L24 28" fill="none" stroke="#fcd34d" stroke-width="6" stroke-linecap="round"/>
+            <circle cx="24" cy="27" r="4.5" fill="#fcd34d"/>
+            <rect x="18" y="10" width="8" height="24" rx="2" fill="#dc2626" stroke="#991b1b" stroke-width="1.5" transform="rotate(-20 22 22)"/>
+            <polygon points="21,6 25,6 23,0" fill="#facc15" transform="rotate(-20 22 22)"/>
+            <text x="22" y="24" font-size="5" font-weight="900" fill="#ffffff" transform="rotate(70 22 24)">DSA</text>
+            <!-- Front leg (can kick) -->
+            <g class="admin-kick-leg">
+              <path d="M58 85 L72 104 L86 108" fill="none" stroke="#1e293b" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M84 106 L98 106 L99 112 L83 112 Z" fill="#020617"/>
+            </g>
+            <!-- Neck & Head -->
+            <rect x="46" y="44" width="8" height="9" fill="#fcd34d"/>
+            <ellipse cx="50" cy="35" rx="16" ry="15" fill="#fcd34d" stroke="#b45309" stroke-width="2.5"/>
+            <!-- Slick Hair -->
+            <path d="M34 32 C34 18, 52 14, 66 20 C68 28, 64 36, 64 36 C58 26, 48 24, 34 32 Z" fill="#0f172a"/>
+            <!-- Angry Eyebrows -->
+            <path d="M38 27 L48 32 M62 27 L52 32" stroke="#0f172a" stroke-width="3" stroke-linecap="round"/>
+            <!-- Glowing Red Furious Eyes -->
+            <rect x="38" y="32" width="10" height="7" rx="1.5" fill="#ef4444" stroke="#7f1d1d" stroke-width="1.5"/>
+            <rect x="52" y="32" width="10" height="7" rx="1.5" fill="#ef4444" stroke="#7f1d1d" stroke-width="1.5"/>
+            <circle cx="41" cy="34" r="1.2" fill="#ffffff"/><circle cx="55" cy="34" r="1.2" fill="#ffffff"/>
+            <!-- Furious Gritted Teeth -->
+            <rect x="44" y="42" width="12" height="4" rx="1" fill="#ffffff" stroke="#7f1d1d" stroke-width="1.2"/>
+            <line x1="47" y1="42" x2="47" y2="46" stroke="#7f1d1d"/>
+            <line x1="50" y1="42" x2="50" y2="46" stroke="#7f1d1d"/>
+            <line x1="53" y1="42" x2="53" y2="46" stroke="#7f1d1d"/>
+            <!-- Front Punch Arm -->
+            <g class="admin-punch-arm">
+              <path d="M68 56 L86 52 L96 52" fill="none" stroke="#fcd34d" stroke-width="6" stroke-linecap="round"/>
+              <circle cx="98" cy="52" r="5" fill="#ef4444" stroke="#991b1b" stroke-width="1.5"/>
+            </g>
+          </svg>
+        </div>
+        <div class="ground" aria-hidden="true">
+          <div class="ground-line"></div>
+          <div class="ground-stripes"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        </div>
+        <div class="character-labels"><span>DSA PROOF: 404 NOT FOUND</span><span>DSA ADMIN</span></div>
+      </div>
+    </section>
+
+    <section id="ending-screen" class="ending-screen" aria-live="polite" hidden>
+      <div class="chase-badge">INCIDENT RESOLUTION</div>
+
+      <!-- ENDING A: DUSSEHRA MODE (BOW, TRAVELING ARROW, FIRE EFFECT) -->
+      <article class="ending-variant dussehra-ending" data-ending="dussehra" aria-labelledby="dussehra-title" hidden>
+        <h2 id="dussehra-title">DUSSEHRA MODE ACTIVATED!</h2>
+        <p class="ending-subtitle">Admin aims with mythological focus! The arrow strikes and harmless cartoon flames erupt!</p>
+        <div class="ending-art dussehra-scene" aria-label="The admin fires a cartoon arrow at a practice dummy, which vanishes in a harmless puff of flame" role="img">
+          <div class="festive-sparks" aria-hidden="true"><span>✦</span><span>★</span><span>✦</span><span>★</span></div>
+          <div class="archer-host"></div>
+          <div class="cartoon-bow" aria-hidden="true">
+            <svg viewBox="0 0 36 90" class="bow-svg">
+              <path class="bow-limb" d="M8 4 Q32 45 8 86" fill="none" stroke="#f59e0b" stroke-width="5" stroke-linecap="round"/>
+              <path d="M8 4 Q28 45 8 86" fill="none" stroke="#fbbf24" stroke-width="2"/>
+              <line class="bow-string" x1="8" y1="4" x2="8" y2="86" stroke="#fef08a" stroke-width="1.8"/>
+            </svg>
+          </div>
+          <div class="cartoon-arrow" aria-hidden="true">
+            <div class="arrow-spark-tail"></div>
+          </div>
+          <div class="arrow-impact-burst" aria-hidden="true">&#128165;</div>
+          <div class="target-host"></div>
+          <div class="flame-burst" aria-hidden="true">
+            <div class="flame-tongues"><span></span><span></span><span></span></div>
+            <span class="burst-flame">&#128293;</span>
+            <span class="burst-text">POOF!</span>
+          </div>
+          <div class="ending-ground" aria-hidden="true"></div>
+        </div>
+      </article>
+
+      <!-- ENDING B: ADMIN SLAPSTICK PUNCHES (HAND-TO-HAND CARTOON ACTION) -->
+      <article class="ending-variant rage-ending" data-ending="rage" aria-labelledby="rage-title" hidden>
+        <h2 id="rage-title">ADMIN SLAPSTICK PUNCH-O-RAMA!</h2>
+        <p class="ending-subtitle">Three rapid cartoon boxing punches connect before a comic dizzy faint!</p>
+        <div class="ending-art rage-scene" aria-label="The admin delivers three rapid cartoon punches and the participant faints comically" role="img">
+          <div class="rage-admin-host"></div>
+          <div class="punch-impact-wrapper" aria-hidden="true">
+            <div class="punch-impact punch-1"><span class="punch-text">POW!</span></div>
+            <div class="punch-impact punch-2"><span class="punch-text">BAM!</span></div>
+            <div class="punch-impact punch-3"><span class="punch-text">KAPOW!</span></div>
+          </div>
+          <div class="comic-stars" aria-hidden="true">
+            <span class="star-item star-1">&#10022;</span>
+            <span class="star-item star-2">&#128171;</span>
+            <span class="star-item star-3">&#9733;</span>
+            <span class="star-item star-4">&#10022;</span>
+          </div>
+          <div class="rage-participant-host"></div>
+          <div class="ending-ground" aria-hidden="true"></div>
+        </div>
+      </article>
+
+      <!-- ENDING C: ADMIN CARTOON KICK & FLY AWAY -->
+      <article class="ending-variant removed-ending" data-ending="removed" aria-labelledby="removed-title" hidden>
+        <h2 id="removed-title">ADMIN KICK OF JUSTICE!</h2>
+        <p class="ending-subtitle">A mighty cartoon kick connects and the participant launches into orbit!</p>
+        <div class="ending-art removed-scene" aria-label="The admin kicks the participant, who flies away across the screen" role="img">
+          <div class="kick-admin-host"></div>
+          <div class="kick-impact-burst" aria-hidden="true">
+            <span class="kick-text">WHAM!</span>
+          </div>
+          <div class="swoosh-lines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="removed-participant-host"></div>
+          <div class="yeet-twinkle" aria-hidden="true">&#10024;</div>
+          <div class="ending-ground" aria-hidden="true"></div>
+        </div>
+      </article>
+    </section>
+
+    <!-- FINAL SCREEN -->
+    <section id="final-screen" class="final-screen" aria-labelledby="final-title" hidden>
+      <div class="chase-badge">STATUS: INVESTIGATION CONCLUDED</div>
+      <h2 id="final-title">WARNING COMPLETE.<br><span>DSA PROOF STILL PENDING!</span></h2>
+      <div class="dossier-card" aria-label="Incident Summary Report">
+        <div class="dossier-header">
+          <span class="dossier-tag">&#9679; CASE FILE #0404</span>
+          <span class="dossier-time">VERDICT: GUILTY OF SLACKING</span>
+        </div>
+        <div class="dossier-grid">
+          <div class="dossier-item">
+            <span class="d-label">DEFENDANT</span>
+            <span class="d-val">Procrastinating Student</span>
+          </div>
+          <div class="dossier-item">
+            <span class="d-label">ADMIN PATIENCE</span>
+            <span class="d-val status-alert">0.00% (CRITICAL)</span>
+          </div>
+          <div class="dossier-item">
+            <span class="d-label">STREAK STATUS</span>
+            <span class="d-val status-danger">BROKEN (0 DAYS)</span>
+          </div>
+          <div class="dossier-item">
+            <span class="d-label">REQUIRED ACTION</span>
+            <span class="d-val status-action">Solve 1 LeetCode Problem</span>
+          </div>
+        </div>
+      </div>
+      <div class="final-actions">
+        <button id="play-again-button" type="button">
+          <span>PLAY AGAIN</span>
+          <span aria-hidden="true">&#8635;</span>
+        </button>
+        <button id="back-home-button" class="secondary-button" type="button">
+          <span aria-hidden="true">&#8592;</span>
+          <span>BACK TO HOME</span>
+        </button>
+      </div>
+    </section>
+
+    <button id="audio-toggle" class="audio-toggle" type="button" aria-label="Mute sound" aria-pressed="false">SOUND ON</button>
+
+    <footer>One Question. One Concept. One Day at a Time.</footer>
+    <div class="corner-mark" aria-hidden="true">DSA / 001</div>
+  </main>
+</body>
+</html>
