@@ -17,6 +17,7 @@
       </div>
     </div>
 
+<<<<<<< HEAD
     <!-- =========================================================
          1. START SCREEN: SEVEN-PERSON DECISION CENTER
          ========================================================= -->
@@ -45,6 +46,9 @@
          2. CLASSIC WARNING CARD (PRESERVED)
          ========================================================= -->
     <section class="warning-card" id="general-warning-card" hidden>
+=======
+    <section class="warning-card">
+>>>>>>> origin/main
       <div class="status"><span class="status-dot" aria-hidden="true"></span> SYSTEM MONITORING: ACTIVE</div>
       <div class="icon" aria-hidden="true">&#9888;</div>
       <p class="eyebrow">A friendly reminder from the DSA department</p>
@@ -57,6 +61,7 @@
       <p class="small-print">This is your totally official, mildly dramatic notice.</p>
     </section>
 
+<<<<<<< HEAD
     <!-- =========================================================
          3. RETRO WINDOWS POP-UP STAGE (16 WINDOW CASCADE)
          ========================================================= -->
@@ -69,6 +74,14 @@
       <div class="chase-badge">ADMIN STATUS: PATIENCE DEPLETED</div>
       <h2 id="chase-title">ADMIN HAS LOST PATIENCE!</h2>
       <p id="chase-caption" class="chase-caption">The DSA proof is still missing. Run for your streak!</p>
+=======
+    <section id="warning-stage" class="warning-stage" aria-label="Warning sequence" aria-live="polite" hidden></section>
+
+    <section id="chase-screen" class="chase-screen" aria-labelledby="chase-title" hidden>
+      <div class="chase-badge">ADMIN STATUS: PATIENCE DEPLETED</div>
+      <h2 id="chase-title">ADMIN HAS LOST PATIENCE!</h2>
+      <p class="chase-caption">The DSA proof is still missing. Run for your streak!</p>
+>>>>>>> origin/main
       <div class="chase-scene" aria-label="The participant runs while the DSA admin chases them" role="img">
         <div class="scene-skyline" aria-hidden="true">
           <div class="digital-grid"></div>
@@ -76,8 +89,13 @@
         </div>
         <div class="speed-lines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
         <div class="chase-track">
+<<<<<<< HEAD
           <!-- PARTICIPANT CARTOON SVG (MALE DEFAULT) -->
           <svg id="male-chase-runner" class="chase-character participant default-male-runner" viewBox="0 0 100 130" aria-hidden="true">
+=======
+          <!-- PARTICIPANT CARTOON SVG -->
+          <svg class="chase-character participant" viewBox="0 0 100 130" aria-hidden="true">
+>>>>>>> origin/main
             <ellipse class="char-shadow" cx="50" cy="124" rx="28" ry="5" fill="#000000" opacity="0.45"/>
             <!-- Back leg -->
             <path d="M42 84 L26 106 L12 112" fill="none" stroke="#2563eb" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
@@ -92,7 +110,11 @@
             <path d="M38 72 L62 72 L58 84 L42 84 Z" fill="#2563eb"/>
             <!-- 0 DSA Badge -->
             <rect x="36" y="59" width="28" height="11" rx="3" fill="#0f172a" stroke="#facc15" stroke-width="1.5"/>
+<<<<<<< HEAD
             <text id="participant-shirt-badge" x="50" y="67" text-anchor="middle" font-family="monospace" font-size="7" font-weight="900" fill="#facc15">0 DSA</text>
+=======
+            <text x="50" y="67" text-anchor="middle" font-family="monospace" font-size="7" font-weight="900" fill="#facc15">0 DSA</text>
+>>>>>>> origin/main
             <!-- Front leg -->
             <path d="M58 84 L72 102 L88 106" fill="none" stroke="#3b82f6" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M84 104 L96 104 L98 109 L83 109 Z" fill="#ef4444" stroke="#0f172a" stroke-width="1.8"/>
@@ -118,6 +140,7 @@
             <path d="M66 58 L82 48 L94 56" fill="none" stroke="#fcd34d" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
 
+<<<<<<< HEAD
           <!-- PARTICIPANT CARTOON SVG (FEMALE - KANIKA) -->
           <svg id="female-chase-runner" class="chase-character participant female-chase-runner" viewBox="0 0 100 130" aria-hidden="true" style="display:none;">
             <ellipse class="char-shadow" cx="50" cy="124" rx="28" ry="5" fill="#000000" opacity="0.45"/>
@@ -166,6 +189,8 @@
             <path d="M66 58 L82 48 L94 56" fill="none" stroke="#fcd34d" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
 
+=======
+>>>>>>> origin/main
           <!-- ADMIN CARTOON SVG -->
           <svg class="chase-character admin" viewBox="0 0 100 130" aria-hidden="true">
             <ellipse class="char-shadow" cx="50" cy="124" rx="32" ry="5.5" fill="#000000" opacity="0.45"/>
@@ -217,6 +242,7 @@
           <div class="ground-line"></div>
           <div class="ground-stripes"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
         </div>
+<<<<<<< HEAD
         <div class="character-labels"><span id="chase-target-label">DSA PROOF: PENDING</span><span>DSA ADMIN</span></div>
       </div>
     </section>
@@ -231,6 +257,19 @@
       <article class="ending-variant dussehra-ending" data-ending="dussehra" aria-labelledby="dussehra-title" hidden>
         <h2 id="dussehra-title">DUSSEHRA MODE ACTIVATED!</h2>
         <p id="dussehra-subtitle" class="ending-subtitle">Admin aims with mythological focus! The arrow strikes and harmless cartoon flames erupt!</p>
+=======
+        <div class="character-labels"><span>DSA PROOF: 404 NOT FOUND</span><span>DSA ADMIN</span></div>
+      </div>
+    </section>
+
+    <section id="ending-screen" class="ending-screen" aria-live="polite" hidden>
+      <div class="chase-badge">INCIDENT RESOLUTION</div>
+
+      <!-- ENDING A: DUSSEHRA MODE (BOW, TRAVELING ARROW, FIRE EFFECT) -->
+      <article class="ending-variant dussehra-ending" data-ending="dussehra" aria-labelledby="dussehra-title" hidden>
+        <h2 id="dussehra-title">DUSSEHRA MODE ACTIVATED!</h2>
+        <p class="ending-subtitle">Admin aims with mythological focus! The arrow strikes and harmless cartoon flames erupt!</p>
+>>>>>>> origin/main
         <div class="ending-art dussehra-scene" aria-label="The admin fires a cartoon arrow at a practice dummy, which vanishes in a harmless puff of flame" role="img">
           <div class="festive-sparks" aria-hidden="true"><span>✦</span><span>★</span><span>✦</span><span>★</span></div>
           <div class="archer-host"></div>
@@ -255,10 +294,17 @@
         </div>
       </article>
 
+<<<<<<< HEAD
       <!-- ENDING B: ADMIN SLAPSTICK PUNCHES (Used by Kshitij & General) -->
       <article class="ending-variant rage-ending" data-ending="rage" aria-labelledby="rage-title" hidden>
         <h2 id="rage-title">ADMIN SLAPSTICK PUNCH-O-RAMA!</h2>
         <p id="rage-subtitle" class="ending-subtitle">Three rapid cartoon boxing punches connect before a comic dizzy faint!</p>
+=======
+      <!-- ENDING B: ADMIN SLAPSTICK PUNCHES (HAND-TO-HAND CARTOON ACTION) -->
+      <article class="ending-variant rage-ending" data-ending="rage" aria-labelledby="rage-title" hidden>
+        <h2 id="rage-title">ADMIN SLAPSTICK PUNCH-O-RAMA!</h2>
+        <p class="ending-subtitle">Three rapid cartoon boxing punches connect before a comic dizzy faint!</p>
+>>>>>>> origin/main
         <div class="ending-art rage-scene" aria-label="The admin delivers three rapid cartoon punches and the participant faints comically" role="img">
           <div class="rage-admin-host"></div>
           <div class="punch-impact-wrapper" aria-hidden="true">
@@ -277,10 +323,17 @@
         </div>
       </article>
 
+<<<<<<< HEAD
       <!-- ENDING C: ADMIN CARTOON KICK & FLY AWAY (Used by Kanika & General) -->
       <article class="ending-variant removed-ending" data-ending="removed" aria-labelledby="removed-title" hidden>
         <h2 id="removed-title">ADMIN KICK OF JUSTICE!</h2>
         <p id="removed-subtitle" class="ending-subtitle">A mighty cartoon kick connects and the participant launches into orbit!</p>
+=======
+      <!-- ENDING C: ADMIN CARTOON KICK & FLY AWAY -->
+      <article class="ending-variant removed-ending" data-ending="removed" aria-labelledby="removed-title" hidden>
+        <h2 id="removed-title">ADMIN KICK OF JUSTICE!</h2>
+        <p class="ending-subtitle">A mighty cartoon kick connects and the participant launches into orbit!</p>
+>>>>>>> origin/main
         <div class="ending-art removed-scene" aria-label="The admin kicks the participant, who flies away across the screen" role="img">
           <div class="kick-admin-host"></div>
           <div class="kick-impact-burst" aria-hidden="true">
@@ -294,6 +347,7 @@
       </article>
     </section>
 
+<<<<<<< HEAD
     <!-- =========================================================
          6. AWARD PRESENTATION CELEBRATION (Kartik, Tanmay, Avantika)
          ========================================================= -->
@@ -621,10 +675,21 @@
         <div class="dossier-header">
           <span id="dossier-tag" class="dossier-tag">&#9679; CASE FILE #0404</span>
           <span id="dossier-verdict" class="dossier-time">VERDICT: GUILTY OF SLACKING</span>
+=======
+    <!-- FINAL SCREEN -->
+    <section id="final-screen" class="final-screen" aria-labelledby="final-title" hidden>
+      <div class="chase-badge">STATUS: INVESTIGATION CONCLUDED</div>
+      <h2 id="final-title">WARNING COMPLETE.<br><span>DSA PROOF STILL PENDING!</span></h2>
+      <div class="dossier-card" aria-label="Incident Summary Report">
+        <div class="dossier-header">
+          <span class="dossier-tag">&#9679; CASE FILE #0404</span>
+          <span class="dossier-time">VERDICT: GUILTY OF SLACKING</span>
+>>>>>>> origin/main
         </div>
         <div class="dossier-grid">
           <div class="dossier-item">
             <span class="d-label">DEFENDANT</span>
+<<<<<<< HEAD
             <span id="dossier-defendant" class="d-val">Procrastinating Student</span>
           </div>
           <div class="dossier-item">
@@ -658,16 +723,41 @@
           <span aria-hidden="true">&#8592;</span>
           <span>BACK TO PARTICIPANTS</span>
         </button>
+=======
+            <span class="d-val">Procrastinating Student</span>
+          </div>
+          <div class="dossier-item">
+            <span class="d-label">ADMIN PATIENCE</span>
+            <span class="d-val status-alert">0.00% (CRITICAL)</span>
+          </div>
+          <div class="dossier-item">
+            <span class="d-label">STREAK STATUS</span>
+            <span class="d-val status-danger">BROKEN (0 DAYS)</span>
+          </div>
+          <div class="dossier-item">
+            <span class="d-label">REQUIRED ACTION</span>
+            <span class="d-val status-action">Solve 1 LeetCode Problem</span>
+          </div>
+        </div>
+      </div>
+      <div class="final-actions">
+>>>>>>> origin/main
         <button id="play-again-button" type="button">
           <span>PLAY AGAIN</span>
           <span aria-hidden="true">&#8635;</span>
         </button>
         <button id="back-home-button" class="secondary-button" type="button">
+<<<<<<< HEAD
           <span>HOME SCREEN</span>
+=======
+          <span aria-hidden="true">&#8592;</span>
+          <span>BACK TO HOME</span>
+>>>>>>> origin/main
         </button>
       </div>
     </section>
 
+<<<<<<< HEAD
     <!-- =========================================================
          CHARACTER TEMPLATES (FEMALE CHARACTERS & FRIENDLY AWARD ADMIN)
          ========================================================= -->
@@ -877,6 +967,8 @@
     </div>
 
     <!-- Floating Audio Toggle -->
+=======
+>>>>>>> origin/main
     <button id="audio-toggle" class="audio-toggle" type="button" aria-label="Mute sound" aria-pressed="false">SOUND ON</button>
 
     <footer>One Question. One Concept. One Day at a Time.</footer>

@@ -1,5 +1,6 @@
 const landing = document.querySelector(".landing");
 const activateButton = document.querySelector("#activate-button");
+<<<<<<< HEAD
 const generalWarningCard = document.querySelector("#general-warning-card");
 const generalSimButton = document.querySelector("#general-sim-button");
 const decisionCenter = document.querySelector("#decision-center");
@@ -156,6 +157,16 @@ const participants = [
 ];
 
 let activeParticipant = null;
+=======
+const warningStage = document.querySelector("#warning-stage");
+const chaseScreen = document.querySelector("#chase-screen");
+const endingScreen = document.querySelector("#ending-screen");
+const finalScreen = document.querySelector("#final-screen");
+const playAgainButton = document.querySelector("#play-again-button");
+const backHomeButton = document.querySelector("#back-home-button");
+const audioToggle = document.querySelector("#audio-toggle");
+
+>>>>>>> origin/main
 const endingKeys = ["dussehra", "rage", "removed"];
 let endingDeck = [];
 let audioContext = null;
@@ -165,10 +176,32 @@ let audioUnavailable = false;
 let sequenceStartedOnce = false;
 let soundMuted = false;
 const activeNodes = new Set();
+<<<<<<< HEAD
 const sceneRecordings = {
   ban: null,
   chase: null
 };
+=======
+
+const warnings = [
+  "DSA PROOF NOT FOUND!",
+  "ADMIN IS WATCHING!",
+  "LAST WARNING: 0 COMMITS!",
+  "YOUR STREAK IS IN CRITICAL DANGER!",
+  "FATAL ERROR: NO BASE CASE DETECTED!",
+  "ALERT: TIME COMPLEXITY O(N!) EXCEEDED!",
+  "MEMORY LIMIT: EXCUSES EXCEEDED 256MB!",
+  "UNHANDLED PROCRASTINATION EXCEPTION!",
+  "ADMIN PATIENCE LEVEL: 0.00%!",
+  "SEGMENTATION FAULT: STREAK DUMPED!",
+  "WARNING: BAN HAMMER PRIMED & ARMED!",
+  "CRITICAL NOTICE: GROUP RULES VIOLATED!",
+  "SYSTEM HALTED: SUBMIT PROOF NOW!",
+  "NULL POINTER: DAILY EFFORT NOT FOUND!",
+  "STACK OVERFLOW OF FAKE REASONS!",
+  "EMERGENCY: ADMIN HAS ENTERED THE SERVER!"
+];
+>>>>>>> origin/main
 
 let sequenceRunning = false;
 let sequenceTimers = [];
@@ -194,7 +227,11 @@ function prepareAudio() {
     if (!audioContext) {
       audioContext = new AudioContextClass();
 
+<<<<<<< HEAD
       // Master Compressor
+=======
+      // Master Compressor to maximize loudness while preventing clipping
+>>>>>>> origin/main
       masterCompressor = audioContext.createDynamicsCompressor();
       masterCompressor.threshold.setValueAtTime(-14, audioContext.currentTime);
       masterCompressor.knee.setValueAtTime(8, audioContext.currentTime);
@@ -202,7 +239,11 @@ function prepareAudio() {
       masterCompressor.attack.setValueAtTime(0.003, audioContext.currentTime);
       masterCompressor.release.setValueAtTime(0.12, audioContext.currentTime);
 
+<<<<<<< HEAD
       // Master Gain for global volume and instant mute/unmute
+=======
+      // Master Gain for volume and instant mute/unmute
+>>>>>>> origin/main
       masterGain = audioContext.createGain();
       masterGain.gain.setValueAtTime(soundMuted ? 0 : 0.28, audioContext.currentTime);
 
@@ -227,9 +268,12 @@ function stopActiveSounds() {
     } catch {}
   });
   activeNodes.clear();
+<<<<<<< HEAD
   if ("speechSynthesis" in window) {
     try { window.speechSynthesis.cancel(); } catch {}
   }
+=======
+>>>>>>> origin/main
 }
 
 function createNoiseBuffer(duration = 1) {
@@ -288,7 +332,11 @@ function playTone({
   } catch {}
 }
 
+<<<<<<< HEAD
 /* Sound Generators */
+=======
+/* 1. Retro Warning Chimes Cascade */
+>>>>>>> origin/main
 function playWarningBeep(index) {
   const freqs = [520, 680, 580, 820, 620, 760, 500, 900, 640, 780, 560, 860, 660, 800, 720, 940];
   const freq = freqs[index % freqs.length];
@@ -302,6 +350,10 @@ function playWarningBeep(index) {
   });
 }
 
+<<<<<<< HEAD
+=======
+/* 2. Chase Scene Footsteps & Catch-Up */
+>>>>>>> origin/main
 function playFootstep(isHigh) {
   playTone({
     startFrequency: isHigh ? 320 : 220,
@@ -314,6 +366,10 @@ function playFootstep(isHigh) {
 }
 
 function playChaseCatchUp() {
+<<<<<<< HEAD
+=======
+  // Dramatic catch-up whoosh + dramatic brass stab
+>>>>>>> origin/main
   playTone({
     startFrequency: 160,
     endFrequency: 780,
@@ -334,7 +390,13 @@ function playChaseCatchUp() {
   });
 }
 
+<<<<<<< HEAD
 function playBowDraw() {
+=======
+/* 3. Dussehra: Bow Draw, Release, Flight, Impact, and Flames */
+function playBowDraw() {
+  // Rising tension creak
+>>>>>>> origin/main
   playTone({
     startFrequency: 130,
     endFrequency: 290,
@@ -346,6 +408,10 @@ function playBowDraw() {
 }
 
 function playBowRelease() {
+<<<<<<< HEAD
+=======
+  // Snappy plucked bow twang
+>>>>>>> origin/main
   playTone({
     startFrequency: 460,
     endFrequency: 95,
@@ -386,6 +452,10 @@ function playArrowFlight(duration = 0.8) {
 }
 
 function playArrowImpact() {
+<<<<<<< HEAD
+=======
+  // Heavy strike thud + sharp snap
+>>>>>>> origin/main
   playTone({
     startFrequency: 240,
     endFrequency: 55,
@@ -417,6 +487,10 @@ function playFireCrackle(duration = 1.8) {
     filter.frequency.setValueAtTime(1200, audioContext.currentTime);
     filter.Q.value = 3;
 
+<<<<<<< HEAD
+=======
+    // Amplitude crackle pops
+>>>>>>> origin/main
     const gain = audioContext.createGain();
     const now = audioContext.currentTime;
     gain.gain.setValueAtTime(0.001, now);
@@ -434,7 +508,13 @@ function playFireCrackle(duration = 1.8) {
   } catch {}
 }
 
+<<<<<<< HEAD
 function playKickImpact() {
+=======
+/* 4. Kick Ending: Punchy Impact, Exaggerated Launch Doppler, Distant Twinkle */
+function playKickImpact() {
+  // Deep sub drop + sharp slap
+>>>>>>> origin/main
   playTone({
     startFrequency: 210,
     endFrequency: 45,
@@ -454,6 +534,10 @@ function playKickImpact() {
 }
 
 function playYeetLaunch(duration = 1.5) {
+<<<<<<< HEAD
+=======
+  // Playful exaggerated launch Doppler whoosh (rising then fading into distance)
+>>>>>>> origin/main
   if (audioUnavailable || !audioContext) return;
   try {
     const now = audioContext.currentTime;
@@ -489,6 +573,7 @@ function playDistantTwinkle() {
   });
 }
 
+<<<<<<< HEAD
 function playCartoonPunch(punchNumber) {
   if (punchNumber === 1) {
     playTone({ startFrequency: 360, endFrequency: 110, duration: 0.14, waveform: "triangle", volume: 0.32, attack: 0.005 });
@@ -497,12 +582,30 @@ function playCartoonPunch(punchNumber) {
     playTone({ startFrequency: 420, endFrequency: 130, duration: 0.14, waveform: "triangle", volume: 0.34, attack: 0.005 });
     playTone({ startFrequency: 820, endFrequency: 300, duration: 0.06, waveform: "square", volume: 0.2, attack: 0.005 });
   } else {
+=======
+/* 5. Slapstick Punches: Three Separated Impacts & Dizzy Fall */
+function playCartoonPunch(punchNumber) {
+  if (punchNumber === 1) {
+    // Punch 1: Snappy boxing hit
+    playTone({ startFrequency: 360, endFrequency: 110, duration: 0.14, waveform: "triangle", volume: 0.32, attack: 0.005 });
+    playTone({ startFrequency: 750, endFrequency: 250, duration: 0.06, waveform: "square", volume: 0.18, attack: 0.005 });
+  } else if (punchNumber === 2) {
+    // Punch 2: Faster, higher hit
+    playTone({ startFrequency: 420, endFrequency: 130, duration: 0.14, waveform: "triangle", volume: 0.34, attack: 0.005 });
+    playTone({ startFrequency: 820, endFrequency: 300, duration: 0.06, waveform: "square", volume: 0.2, attack: 0.005 });
+  } else {
+    // Punch 3: Heavy knockout punch
+>>>>>>> origin/main
     playTone({ startFrequency: 240, endFrequency: 48, duration: 0.26, waveform: "sine", volume: 0.42, attack: 0.005 });
     playTone({ startFrequency: 950, endFrequency: 180, duration: 0.12, waveform: "sawtooth", volume: 0.25, attack: 0.005 });
   }
 }
 
 function playDizzyFall() {
+<<<<<<< HEAD
+=======
+  // Comical slide whistle down with vibrato wobble
+>>>>>>> origin/main
   if (audioUnavailable || !audioContext) return;
   try {
     const now = audioContext.currentTime;
@@ -535,12 +638,17 @@ function playDizzyFall() {
     lfo.stop(now + 0.46);
     osc.stop(now + 0.46);
 
+<<<<<<< HEAD
+=======
+    // Soft ground thump
+>>>>>>> origin/main
     schedule(() => {
       playTone({ startFrequency: 95, endFrequency: 40, duration: 0.16, waveform: "sine", volume: 0.26 });
     }, 450);
   } catch {}
 }
 
+<<<<<<< HEAD
 /* Celebratory / Award Fanfare */
 function playCelebrationFanfare() {
   [523.2, 659.2, 783.9, 987.8, 1046.5].forEach((freq, idx) => {
@@ -577,6 +685,9 @@ function playConfusedBoing() {
   playTone({ startFrequency: 600, endFrequency: 240, duration: 0.25, waveform: "triangle", volume: 0.2 });
 }
 
+=======
+/* 6. Victory Fanfare & UI Clicks */
+>>>>>>> origin/main
 function playCompletionFanfare() {
   [523.2, 659.2, 783.9, 1046.5].forEach((freq, idx) => {
     playTone({
@@ -593,6 +704,7 @@ function playImpact() {
   playTone({ startFrequency: 280, endFrequency: 120, duration: 0.14, waveform: "triangle", volume: 0.28 });
 }
 
+<<<<<<< HEAD
 function playButtonClick() {
   playTone({ startFrequency: 1000, endFrequency: 350, duration: 0.03, waveform: "triangle", volume: 0.18 });
 }
@@ -636,6 +748,8 @@ function stopSceneRecordings() {
   stopRecording("chase");
 }
 
+=======
+>>>>>>> origin/main
 function updateAudioToggle() {
   audioToggle.textContent = soundMuted ? "SOUND OFF" : "SOUND ON";
   audioToggle.setAttribute("aria-pressed", String(soundMuted));
@@ -643,6 +757,7 @@ function updateAudioToggle() {
   if (masterGain && audioContext) {
     masterGain.gain.setValueAtTime(soundMuted ? 0 : 0.28, audioContext.currentTime);
   }
+<<<<<<< HEAD
   Object.values(sceneRecordings).forEach((audio) => {
     if (audio) audio.muted = soundMuted;
   });
@@ -1234,6 +1349,12 @@ function showFinalVerdictScreen(p) {
 
 /* =========================================================
    RANDOM ENDINGS HELPER
+=======
+}
+
+/* =========================================================
+   RANDOM ENDINGS MANAGER
+>>>>>>> origin/main
    ========================================================= */
 function pickEnding() {
   if (endingDeck.length === 0) {
@@ -1247,6 +1368,7 @@ function pickEnding() {
 }
 
 function addEndingCharacter(hostSelector, characterSelector) {
+<<<<<<< HEAD
   const host = document.querySelector(hostSelector);
   if (!host) return null;
   const source = document.querySelector(characterSelector);
@@ -1258,6 +1380,55 @@ function addEndingCharacter(hostSelector, characterSelector) {
   character.setAttribute("aria-hidden", "true");
   host.replaceChildren(character);
   return character;
+=======
+  const host = endingScreen.querySelector(hostSelector);
+  if (!host) return;
+  const character = document.querySelector(characterSelector).cloneNode(true);
+  character.classList.remove("participant", "admin");
+  character.classList.add("ending-person");
+  character.setAttribute("aria-hidden", "true");
+  host.replaceChildren(character);
+}
+
+function showRandomEnding() {
+  const selectedKey = pickEnding();
+  const selectedEnding = endingScreen.querySelector(`[data-ending="${selectedKey}"]`);
+  endingScreen.querySelectorAll(".ending-variant").forEach((variant) => {
+    variant.hidden = variant !== selectedEnding;
+  });
+
+  if (selectedKey === "dussehra") {
+    addEndingCharacter(".archer-host", ".admin");
+    addEndingCharacter(".target-host", ".participant");
+
+    // Dussehra Synchronized Sound Sequence
+    schedule(playBowDraw, 200);
+    schedule(playBowRelease, 700);
+    schedule(() => playArrowFlight(0.8), 720);
+    schedule(playArrowImpact, 1500);
+    schedule(() => playFireCrackle(1.8), 1520);
+  } else if (selectedKey === "rage") {
+    addEndingCharacter(".rage-admin-host", ".admin");
+    addEndingCharacter(".rage-participant-host", ".participant");
+
+    // Three Punches Synchronized Sequence
+    schedule(() => playCartoonPunch(1), 800);
+    schedule(() => playCartoonPunch(2), 1300);
+    schedule(() => playCartoonPunch(3), 1800);
+    schedule(playDizzyFall, 2300);
+  } else {
+    // Admin Kick Ending
+    addEndingCharacter(".kick-admin-host", ".admin");
+    addEndingCharacter(".removed-participant-host", ".participant");
+
+    // Kick & Launch Synchronized Sequence
+    schedule(playKickImpact, 1000);
+    schedule(() => playYeetLaunch(1.5), 1020);
+    schedule(playDistantTwinkle, 2500);
+  }
+
+  endingScreen.hidden = false;
+>>>>>>> origin/main
 }
 
 /* =========================================================
@@ -1288,9 +1459,15 @@ function addWarning(message, index, total) {
   });
 
   warningStage.append(popup);
+<<<<<<< HEAD
   playWarningBeep(index);
 
   // Compute position across viewport using 4x4 grid with jitter
+=======
+  playWarningBeep(index, total);
+
+  // Compute position across viewport using a structured 4x4 grid with jitter
+>>>>>>> origin/main
   const stageRect = warningStage.getBoundingClientRect();
   const stageW = stageRect.width || window.innerWidth;
   const stageH = stageRect.height || window.innerHeight;
@@ -1320,8 +1497,64 @@ function addWarning(message, index, total) {
 }
 
 /* =========================================================
+<<<<<<< HEAD
    RESET AND NAVIGATION
    ========================================================= */
+=======
+   CORE SEQUENCE CONTROLLER
+   ========================================================= */
+function startSequence() {
+  if (sequenceRunning) return;
+  sequenceRunning = true;
+  sequenceStartedOnce = true;
+  prepareAudio();
+
+  landing.classList.add("sequence-active");
+  warningStage.hidden = false;
+
+  const popupInterval = 160;
+  warnings.forEach((message, index) => {
+    schedule(() => addWarning(message, index, warnings.length), index * popupInterval);
+  });
+
+  // Staggered popup cascade finishes, then smoothly transition to chase
+  schedule(() => {
+    warningStage.hidden = true;
+    chaseScreen.hidden = false;
+
+    // Chase footstep sound loop
+    let stepCount = 0;
+    const footstepInterval = window.setInterval(() => {
+      if (!sequenceRunning) {
+        window.clearInterval(footstepInterval);
+        return;
+      }
+      playFootstep(stepCount % 2 === 0);
+      stepCount++;
+    }, 180);
+    sequenceTimers.push(footstepInterval);
+
+    // Near-catch impact sting at 4600ms
+    schedule(playChaseCatchUp, 4600);
+
+    // Transition from Chase to Ending at 5500ms
+    schedule(() => {
+      window.clearInterval(footstepInterval);
+      chaseScreen.hidden = true;
+      showRandomEnding();
+
+      // Transition from Ending to Final Screen after 3900ms
+      schedule(() => {
+        endingScreen.hidden = true;
+        finalScreen.hidden = false;
+        playCompletionFanfare();
+        sequenceRunning = false;
+      }, 3900);
+    }, 5500);
+  }, warnings.length * popupInterval + 1100);
+}
+
+>>>>>>> origin/main
 function resetPage() {
   sequenceTimers.forEach((timer) => {
     window.clearTimeout(timer);
@@ -1329,7 +1562,10 @@ function resetPage() {
   });
   sequenceTimers = [];
   stopActiveSounds();
+<<<<<<< HEAD
   stopSceneRecordings();
+=======
+>>>>>>> origin/main
   sequenceRunning = false;
   sequenceStartedOnce = false;
 
@@ -1337,6 +1573,7 @@ function resetPage() {
   warningStage.hidden = true;
   chaseScreen.hidden = true;
   endingScreen.hidden = true;
+<<<<<<< HEAD
   if (awardScreen) {
     awardScreen.hidden = true;
     awardScreen.classList.remove("award-theme-gold", "award-theme-cyan", "award-theme-pink");
@@ -1353,10 +1590,13 @@ function resetPage() {
   // Restore chase participant to default male runner
   setupChaseParticipant(null);
 
+=======
+>>>>>>> origin/main
   endingScreen.querySelectorAll(".ending-variant").forEach((variant) => {
     variant.hidden = true;
   });
 
+<<<<<<< HEAD
   const hosts = [
     ".archer-host",
     ".target-host",
@@ -1424,6 +1664,30 @@ if (activateButton) {
     startWarningAndActionFlow(null);
   });
 }
+=======
+  endingScreen.querySelectorAll(".ending-art > div").forEach((host) => {
+    if (
+      host.classList.contains("archer-host") ||
+      host.classList.contains("target-host") ||
+      host.classList.contains("kick-admin-host") ||
+      host.classList.contains("rage-admin-host") ||
+      host.classList.contains("rage-participant-host") ||
+      host.classList.contains("removed-participant-host")
+    ) {
+      host.replaceChildren();
+    }
+  });
+
+  finalScreen.hidden = true;
+  landing.classList.remove("sequence-active");
+  activateButton.focus();
+}
+
+/* =========================================================
+   EVENT LISTENERS
+   ========================================================= */
+activateButton.addEventListener("click", startSequence);
+>>>>>>> origin/main
 
 audioToggle.addEventListener("click", () => {
   soundMuted = !soundMuted;
@@ -1432,6 +1696,7 @@ audioToggle.addEventListener("click", () => {
   updateAudioToggle();
 });
 
+<<<<<<< HEAD
 // Replay buttons
 playAgainButton.addEventListener("click", () => {
   playButtonClick();
@@ -1485,3 +1750,11 @@ if (screenshotMenuButton) {
     resetPage();
   });
 }
+=======
+playAgainButton.addEventListener("click", () => {
+  resetPage();
+  startSequence();
+});
+
+backHomeButton.addEventListener("click", resetPage);
+>>>>>>> origin/main
