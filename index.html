@@ -1,0 +1,886 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d0e12">
+  <title>DSA Admin Warning System</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="landing" aria-labelledby="page-title">
+    <div class="warning-tape warning-tape-top" aria-hidden="true">
+      <div class="tape-track">
+        <span>⚠ ADMIN NOTICE &#8226; NO DSA PROOF DETECTED &#8226; ADMIN NOTICE &#8226; CRITICAL STREAK ALERT &#8226; ADMIN NOTICE &#8226; NO DSA PROOF DETECTED &#8226;</span>
+        <span>⚠ ADMIN NOTICE &#8226; NO DSA PROOF DETECTED &#8226; ADMIN NOTICE &#8226; CRITICAL STREAK ALERT &#8226; ADMIN NOTICE &#8226; NO DSA PROOF DETECTED &#8226;</span>
+      </div>
+    </div>
+
+    <!-- =========================================================
+         1. START SCREEN: SEVEN-PERSON DECISION CENTER
+         ========================================================= -->
+    <section id="decision-center" class="decision-center" aria-labelledby="center-title">
+      <div class="center-header">
+        <div class="status"><span class="status-dot" aria-hidden="true"></span> ADMIN CONTROL PROTOCOL ACTIVE</div>
+        <div class="center-icon" aria-hidden="true">&#9888;</div>
+        <h1 id="center-title">DSA ADMIN<br><span>DECISION CENTER</span></h1>
+        <p class="center-subtitle">One Question. One Concept. One Day at a Time.</p>
+        <p class="center-tagline">Select a group participant to evaluate their daily DSA consistency &amp; attendance:</p>
+      </div>
+
+      <!-- Seven Participant Cards Container (Rendered dynamically & accessible) -->
+      <div id="participants-grid" class="participants-grid" role="region" aria-label="Group Participants">
+        <!-- Rendered by script.js from participants data structure -->
+      </div>
+
+      <div class="center-footer-actions">
+        <button id="general-sim-button" type="button" class="secondary-button center-sim-btn">
+          <span>&#9888; RUN GENERAL WARNING SIMULATION</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         2. CLASSIC WARNING CARD (PRESERVED)
+         ========================================================= -->
+    <section class="warning-card" id="general-warning-card" hidden>
+      <div class="status"><span class="status-dot" aria-hidden="true"></span> SYSTEM MONITORING: ACTIVE</div>
+      <div class="icon" aria-hidden="true">&#9888;</div>
+      <p class="eyebrow">A friendly reminder from the DSA department</p>
+      <h1 id="page-title">DSA ADMIN<br><span>WARNING SYSTEM</span></h1>
+      <p class="subtitle">No DSA proof? The admin has noticed.</p>
+      <button id="activate-button" type="button">
+        <span>I'M NOT GUILTY!</span>
+        <span class="btn-arrow" aria-hidden="true">&#8599;</span>
+      </button>
+      <p class="small-print">This is your totally official, mildly dramatic notice.</p>
+    </section>
+
+    <!-- =========================================================
+         3. RETRO WINDOWS POP-UP STAGE (16 WINDOW CASCADE)
+         ========================================================= -->
+    <section id="warning-stage" class="warning-stage" aria-label="Warning sequence" aria-live="polite" hidden></section>
+
+    <!-- =========================================================
+         4. CARTOON CHASE SCENE
+         ========================================================= -->
+    <section id="chase-screen" class="chase-screen" aria-labelledby="chase-title" hidden>
+      <div class="chase-badge">ADMIN STATUS: PATIENCE DEPLETED</div>
+      <h2 id="chase-title">ADMIN HAS LOST PATIENCE!</h2>
+      <p id="chase-caption" class="chase-caption">The DSA proof is still missing. Run for your streak!</p>
+      <div class="chase-scene" aria-label="The participant runs while the DSA admin chases them" role="img">
+        <div class="scene-skyline" aria-hidden="true">
+          <div class="digital-grid"></div>
+          <div class="floating-code">{ } [ ] ( ) &lt; &gt; ;</div>
+        </div>
+        <div class="speed-lines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="chase-track">
+          <!-- PARTICIPANT CARTOON SVG (MALE DEFAULT) -->
+          <svg id="male-chase-runner" class="chase-character participant default-male-runner" viewBox="0 0 100 130" aria-hidden="true">
+            <ellipse class="char-shadow" cx="50" cy="124" rx="28" ry="5" fill="#000000" opacity="0.45"/>
+            <!-- Back leg -->
+            <path d="M42 84 L26 106 L12 112" fill="none" stroke="#2563eb" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 110 L18 110 L20 115 L8 115 Z" fill="#facc15" stroke="#0f172a" stroke-width="1.8"/>
+            <!-- Back arm -->
+            <path d="M36 60 L18 48 L10 56" fill="none" stroke="#fcd34d" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Backpack -->
+            <rect x="22" y="58" width="12" height="24" rx="4" fill="#475569" stroke="#1e293b" stroke-width="2"/>
+            <path d="M26 64 L30 64" stroke="#facc15" stroke-width="2" stroke-linecap="round"/>
+            <!-- Torso & Hoodie -->
+            <path d="M34 54 L27 88 L73 88 L66 54 Z" fill="#3b82f6" stroke="#1d4ed8" stroke-width="3" stroke-linejoin="round"/>
+            <path d="M38 72 L62 72 L58 84 L42 84 Z" fill="#2563eb"/>
+            <!-- 0 DSA Badge -->
+            <rect x="36" y="59" width="28" height="11" rx="3" fill="#0f172a" stroke="#facc15" stroke-width="1.5"/>
+            <text id="participant-shirt-badge" x="50" y="67" text-anchor="middle" font-family="monospace" font-size="7" font-weight="900" fill="#facc15">0 DSA</text>
+            <!-- Front leg -->
+            <path d="M58 84 L72 102 L88 106" fill="none" stroke="#3b82f6" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M84 104 L96 104 L98 109 L83 109 Z" fill="#ef4444" stroke="#0f172a" stroke-width="1.8"/>
+            <!-- Neck & Head -->
+            <rect x="46" y="46" width="8" height="9" fill="#fcd34d"/>
+            <ellipse cx="52" cy="37" rx="17" ry="16" fill="#fcd34d" stroke="#b45309" stroke-width="2.5"/>
+            <!-- Panicked Sweat Bead -->
+            <path d="M28 28 Q20 25 24 32 Q28 31 28 28 Z" fill="#38bdf8" stroke="#0284c7" stroke-width="1.5"/>
+            <!-- Messy Hair -->
+            <path d="M34 35 C32 18, 52 14, 69 22 C73 26, 72 35, 68 38 C64 28, 54 24, 42 27 C38 29, 35 33, 34 35 Z" fill="#334155" stroke="#0f172a" stroke-width="2"/>
+            <path d="M42 21 L37 13 L47 18 M53 17 L56 10 L60 18" stroke="#334155" stroke-width="3" stroke-linecap="round"/>
+            <!-- Panicked Eyes Looking Back at Admin -->
+            <ellipse cx="44" cy="36" rx="5" ry="6" fill="#ffffff" stroke="#0f172a" stroke-width="1.5"/>
+            <circle cx="41.5" cy="36" r="2.2" fill="#0f172a"/>
+            <ellipse cx="58" cy="36" rx="5" ry="6" fill="#ffffff" stroke="#0f172a" stroke-width="1.5"/>
+            <circle cx="55.5" cy="36" r="2.2" fill="#0f172a"/>
+            <!-- Terrified Eyebrows -->
+            <path d="M40 28 Q44 24 48 27 M54 27 Q58 24 62 28" fill="none" stroke="#78350f" stroke-width="2" stroke-linecap="round"/>
+            <!-- Screaming Mouth -->
+            <ellipse cx="49" cy="46" rx="6" ry="5" fill="#7f1d1d" stroke="#450a0a" stroke-width="1.5"/>
+            <path d="M46 48 Q49 46 52 48 Q49 51 46 48 Z" fill="#f43f5e"/>
+            <!-- Front arm -->
+            <path d="M66 58 L82 48 L94 56" fill="none" stroke="#fcd34d" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+
+          <!-- PARTICIPANT CARTOON SVG (FEMALE - KANIKA) -->
+          <svg id="female-chase-runner" class="chase-character participant female-chase-runner" viewBox="0 0 100 130" aria-hidden="true" style="display:none;">
+            <ellipse class="char-shadow" cx="50" cy="124" rx="28" ry="5" fill="#000000" opacity="0.45"/>
+            <!-- Back leg running -->
+            <path d="M42 84 L26 106 L12 112" fill="none" stroke="#6b21a8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 110 L18 110 L20 115 L8 115 Z" fill="#ec4899" stroke="#0f172a" stroke-width="1.8"/>
+            <!-- Back arm -->
+            <path d="M36 60 L18 48 L10 56" fill="none" stroke="#fcd34d" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Cute purple sling pack / bag -->
+            <rect x="22" y="58" width="12" height="22" rx="4" fill="#581c87" stroke="#3b0764" stroke-width="2"/>
+            <path d="M26 63 L30 63" stroke="#f472b6" stroke-width="2" stroke-linecap="round"/>
+            <!-- Feminine Fitted Hoodie / Top -->
+            <path d="M35 54 L28 88 L72 88 L65 54 Z" fill="#a855f7" stroke="#7e22ce" stroke-width="3" stroke-linejoin="round"/>
+            <path d="M39 74 L61 74 L57 84 L43 84 Z" fill="#9333ea"/>
+            <!-- Shirt Badge -->
+            <rect x="34" y="60" width="32" height="11" rx="3" fill="#0f172a" stroke="#f472b6" stroke-width="1.5"/>
+            <text id="participant-shirt-badge" x="50" y="68" text-anchor="middle" font-family="monospace" font-size="6.5" font-weight="900" fill="#f472b6">KANIKA</text>
+            <!-- Front leg running -->
+            <path d="M58 84 L72 102 L88 106" fill="none" stroke="#7e22ce" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M84 104 L96 104 L98 109 L83 109 Z" fill="#ec4899" stroke="#0f172a" stroke-width="1.8"/>
+            <!-- Long flowing ponytail streaming back in the wind -->
+            <path class="character-ponytail" d="M34 32 C18 20, 6 36, 2 46 C8 48, 18 40, 30 38 Z" fill="#2d1b14" stroke="#1a0f0a" stroke-width="2"/>
+            <circle cx="32" cy="33" r="3.5" fill="#f43f5e"/>
+            <!-- Neck & Head -->
+            <rect x="47" y="46" width="7" height="9" fill="#fcd34d"/>
+            <ellipse cx="52" cy="37" rx="16" ry="15" fill="#fcd34d" stroke="#b45309" stroke-width="2.5"/>
+            <!-- Cheeks Blush -->
+            <ellipse cx="40" cy="42" rx="3" ry="2" fill="#f472b6" opacity="0.6"/>
+            <ellipse cx="62" cy="42" rx="3" ry="2" fill="#f472b6" opacity="0.6"/>
+            <!-- Feminine Hair Front & Bangs -->
+            <path d="M36 34 C36 20, 52 14, 68 22 C72 26, 71 35, 68 38 C64 28, 54 24, 42 27 C38 29, 36 32, 36 34 Z" fill="#3b2314" stroke="#1a0f0a" stroke-width="2"/>
+            <path d="M42 26 C46 32, 54 32, 58 26" fill="none" stroke="#3b2314" stroke-width="2.5"/>
+            <path d="M34 35 L33 46 M68 36 L70 47" stroke="#3b2314" stroke-width="2.5" stroke-linecap="round"/>
+            <!-- Feminine Eyes with Eyelashes Looking Back -->
+            <ellipse cx="44" cy="36" rx="5" ry="6" fill="#ffffff" stroke="#0f172a" stroke-width="1.5"/>
+            <circle cx="41.5" cy="36" r="2.2" fill="#0f172a"/>
+            <path d="M40 31 L37 28 M44 30 L43 27 M48 31 L50 28" stroke="#0f172a" stroke-width="1.6" stroke-linecap="round"/>
+            <ellipse cx="58" cy="36" rx="5" ry="6" fill="#ffffff" stroke="#0f172a" stroke-width="1.5"/>
+            <circle cx="55.5" cy="36" r="2.2" fill="#0f172a"/>
+            <path d="M54 31 L52 28 M58 30 L58 27 M62 31 L65 28" stroke="#0f172a" stroke-width="1.6" stroke-linecap="round"/>
+            <!-- Eyebrows & Surprised mouth -->
+            <path d="M40 28 Q44 25 48 28 M54 28 Q58 25 62 28" fill="none" stroke="#78350f" stroke-width="1.8" stroke-linecap="round"/>
+            <ellipse cx="49" cy="46" rx="5.5" ry="4.5" fill="#7f1d1d" stroke="#450a0a" stroke-width="1.5"/>
+            <path d="M46 48 Q49 46 52 48" stroke="#f43f5e" stroke-width="1.5"/>
+            <!-- Front Arm swinging -->
+            <path d="M66 58 L82 48 L94 56" fill="none" stroke="#fcd34d" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+
+          <!-- ADMIN CARTOON SVG -->
+          <svg class="chase-character admin" viewBox="0 0 100 130" aria-hidden="true">
+            <ellipse class="char-shadow" cx="50" cy="124" rx="32" ry="5.5" fill="#000000" opacity="0.45"/>
+            <!-- Back leg -->
+            <path d="M40 85 L24 108 L12 112" fill="none" stroke="#0f172a" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 110 L22 110 L24 116 L8 116 Z" fill="#020617"/>
+            <!-- Torso & Suit -->
+            <path d="M30 52 L24 88 L76 88 L70 52 Z" fill="#1e293b" stroke="#0f172a" stroke-width="3" stroke-linejoin="round"/>
+            <polygon points="44,52 56,52 50,68" fill="#f8fafc"/>
+            <!-- Red necktie -->
+            <polygon points="48,58 52,58 54,78 50,84 46,78" fill="#dc2626"/>
+            <!-- Admin badge -->
+            <polygon points="62,58 66,56 68,62 64,66 60,62" fill="#facc15" stroke="#ca8a04" stroke-width="1"/>
+            <!-- Giant Red DSA Pen -->
+            <path d="M32 58 L20 42 L24 28" fill="none" stroke="#fcd34d" stroke-width="6" stroke-linecap="round"/>
+            <circle cx="24" cy="27" r="4.5" fill="#fcd34d"/>
+            <rect x="18" y="10" width="8" height="24" rx="2" fill="#dc2626" stroke="#991b1b" stroke-width="1.5" transform="rotate(-20 22 22)"/>
+            <polygon points="21,6 25,6 23,0" fill="#facc15" transform="rotate(-20 22 22)"/>
+            <text x="22" y="24" font-size="5" font-weight="900" fill="#ffffff" transform="rotate(70 22 24)">DSA</text>
+            <!-- Front leg (can kick) -->
+            <g class="admin-kick-leg">
+              <path d="M58 85 L72 104 L86 108" fill="none" stroke="#1e293b" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M84 106 L98 106 L99 112 L83 112 Z" fill="#020617"/>
+            </g>
+            <!-- Neck & Head -->
+            <rect x="46" y="44" width="8" height="9" fill="#fcd34d"/>
+            <ellipse cx="50" cy="35" rx="16" ry="15" fill="#fcd34d" stroke="#b45309" stroke-width="2.5"/>
+            <!-- Slick Hair -->
+            <path d="M34 32 C34 18, 52 14, 66 20 C68 28, 64 36, 64 36 C58 26, 48 24, 34 32 Z" fill="#0f172a"/>
+            <!-- Angry Eyebrows -->
+            <path d="M38 27 L48 32 M62 27 L52 32" stroke="#0f172a" stroke-width="3" stroke-linecap="round"/>
+            <!-- Glowing Red Furious Eyes -->
+            <rect x="38" y="32" width="10" height="7" rx="1.5" fill="#ef4444" stroke="#7f1d1d" stroke-width="1.5"/>
+            <rect x="52" y="32" width="10" height="7" rx="1.5" fill="#ef4444" stroke="#7f1d1d" stroke-width="1.5"/>
+            <circle cx="41" cy="34" r="1.2" fill="#ffffff"/><circle cx="55" cy="34" r="1.2" fill="#ffffff"/>
+            <!-- Furious Gritted Teeth -->
+            <rect x="44" y="42" width="12" height="4" rx="1" fill="#ffffff" stroke="#7f1d1d" stroke-width="1.2"/>
+            <line x1="47" y1="42" x2="47" y2="46" stroke="#7f1d1d"/>
+            <line x1="50" y1="42" x2="50" y2="46" stroke="#7f1d1d"/>
+            <line x1="53" y1="42" x2="53" y2="46" stroke="#7f1d1d"/>
+            <!-- Front Punch Arm -->
+            <g class="admin-punch-arm">
+              <path d="M68 56 L86 52 L96 52" fill="none" stroke="#fcd34d" stroke-width="6" stroke-linecap="round"/>
+              <circle cx="98" cy="52" r="5" fill="#ef4444" stroke="#991b1b" stroke-width="1.5"/>
+            </g>
+          </svg>
+        </div>
+        <div class="ground" aria-hidden="true">
+          <div class="ground-line"></div>
+          <div class="ground-stripes"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        </div>
+        <div class="character-labels"><span id="chase-target-label">DSA PROOF: PENDING</span><span>DSA ADMIN</span></div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         5. THREE DRAMATIC ENDINGS (DUSSEHRA, PUNCHES, KICK)
+         ========================================================= -->
+    <section id="ending-screen" class="ending-screen" aria-live="polite" hidden>
+      <div class="chase-badge">INCIDENT RESOLUTION</div>
+
+      <!-- ENDING A: DUSSEHRA MODE (Used by Krishna & General) -->
+      <article class="ending-variant dussehra-ending" data-ending="dussehra" aria-labelledby="dussehra-title" hidden>
+        <h2 id="dussehra-title">DUSSEHRA MODE ACTIVATED!</h2>
+        <p id="dussehra-subtitle" class="ending-subtitle">Admin aims with mythological focus! The arrow strikes and harmless cartoon flames erupt!</p>
+        <div class="ending-art dussehra-scene" aria-label="The admin fires a cartoon arrow at a practice dummy, which vanishes in a harmless puff of flame" role="img">
+          <div class="festive-sparks" aria-hidden="true"><span>✦</span><span>★</span><span>✦</span><span>★</span></div>
+          <div class="archer-host"></div>
+          <div class="cartoon-bow" aria-hidden="true">
+            <svg viewBox="0 0 36 90" class="bow-svg">
+              <path class="bow-limb" d="M8 4 Q32 45 8 86" fill="none" stroke="#f59e0b" stroke-width="5" stroke-linecap="round"/>
+              <path d="M8 4 Q28 45 8 86" fill="none" stroke="#fbbf24" stroke-width="2"/>
+              <line class="bow-string" x1="8" y1="4" x2="8" y2="86" stroke="#fef08a" stroke-width="1.8"/>
+            </svg>
+          </div>
+          <div class="cartoon-arrow" aria-hidden="true">
+            <div class="arrow-spark-tail"></div>
+          </div>
+          <div class="arrow-impact-burst" aria-hidden="true">&#128165;</div>
+          <div class="target-host"></div>
+          <div class="flame-burst" aria-hidden="true">
+            <div class="flame-tongues"><span></span><span></span><span></span></div>
+            <span class="burst-flame">&#128293;</span>
+            <span class="burst-text">POOF!</span>
+          </div>
+          <div class="ending-ground" aria-hidden="true"></div>
+        </div>
+      </article>
+
+      <!-- ENDING B: ADMIN SLAPSTICK PUNCHES (Used by Kshitij & General) -->
+      <article class="ending-variant rage-ending" data-ending="rage" aria-labelledby="rage-title" hidden>
+        <h2 id="rage-title">ADMIN SLAPSTICK PUNCH-O-RAMA!</h2>
+        <p id="rage-subtitle" class="ending-subtitle">Three rapid cartoon boxing punches connect before a comic dizzy faint!</p>
+        <div class="ending-art rage-scene" aria-label="The admin delivers three rapid cartoon punches and the participant faints comically" role="img">
+          <div class="rage-admin-host"></div>
+          <div class="punch-impact-wrapper" aria-hidden="true">
+            <div class="punch-impact punch-1"><span class="punch-text">POW!</span></div>
+            <div class="punch-impact punch-2"><span class="punch-text">BAM!</span></div>
+            <div class="punch-impact punch-3"><span class="punch-text">KAPOW!</span></div>
+          </div>
+          <div class="comic-stars" aria-hidden="true">
+            <span class="star-item star-1">&#10022;</span>
+            <span class="star-item star-2">&#128171;</span>
+            <span class="star-item star-3">&#9733;</span>
+            <span class="star-item star-4">&#10022;</span>
+          </div>
+          <div class="rage-participant-host"></div>
+          <div class="ending-ground" aria-hidden="true"></div>
+        </div>
+      </article>
+
+      <!-- ENDING C: ADMIN CARTOON KICK & FLY AWAY (Used by Kanika & General) -->
+      <article class="ending-variant removed-ending" data-ending="removed" aria-labelledby="removed-title" hidden>
+        <h2 id="removed-title">ADMIN KICK OF JUSTICE!</h2>
+        <p id="removed-subtitle" class="ending-subtitle">A mighty cartoon kick connects and the participant launches into orbit!</p>
+        <div class="ending-art removed-scene" aria-label="The admin kicks the participant, who flies away across the screen" role="img">
+          <div class="kick-admin-host"></div>
+          <div class="kick-impact-burst" aria-hidden="true">
+            <span class="kick-text">WHAM!</span>
+          </div>
+          <div class="swoosh-lines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="removed-participant-host"></div>
+          <div class="yeet-twinkle" aria-hidden="true">&#10024;</div>
+          <div class="ending-ground" aria-hidden="true"></div>
+        </div>
+      </article>
+    </section>
+
+    <!-- =========================================================
+         6. AWARD PRESENTATION CELEBRATION (Kartik, Tanmay, Avantika)
+         ========================================================= -->
+    <section id="award-screen" class="award-screen" aria-labelledby="award-title" hidden>
+      <div id="award-badge" class="chase-badge award-badge">ADMIN RECOGNITION: EXCELLENCE</div>
+      <h2 id="award-title">ADMIN APPROVAL: EXCELLENT WORK!</h2>
+      <p id="award-subtitle" class="award-subtitle">Outstanding consistency in daily DSA submissions!</p>
+
+      <div class="award-art" id="award-stage-container" aria-label="Admin presents flowers to top performing participant" role="img">
+        <div id="award-petals" class="floating-petals" aria-hidden="true"></div>
+        <div id="award-sparkles" class="award-sparkles" aria-hidden="true"></div>
+
+        <!-- The Admin Actor (Friendly, walks in, stops, presents) -->
+        <div class="award-admin-host" id="award-admin-actor"></div>
+
+        <!-- The Handover Bouquet (Visibly moves from admin to participant) -->
+        <div class="award-bouquet-carrier" id="award-bouquet-actor">
+          <div id="bouquet-content" class="bouquet-content"></div>
+        </div>
+
+        <!-- Bouncing Heart (Appears during celebration) -->
+        <div id="award-heart" class="bouncing-heart" aria-hidden="true">&#10084;&#65039;</div>
+
+        <!-- The Participant Actor (Stands calmly, receives bouquet, smiles) -->
+        <div class="award-participant-host" id="award-participant-actor"></div>
+        <div class="ending-ground" aria-hidden="true"></div>
+      </div>
+
+      <div id="award-story" class="award-story" aria-label="Recognition story"></div>
+
+      <!-- Live Stage Status Pill -->
+      <div class="award-stage-status" id="award-stage-status">Admin approaching with celebratory bouquet...</div>
+
+      <div class="award-message-box">
+        <p id="award-message" class="award-recognition">One of the top performers. Consistency appreciated!</p>
+        <p id="award-appreciation" class="award-appreciation"></p>
+      </div>
+
+      <div class="final-actions">
+        <button id="award-menu-button" class="secondary-button" type="button">
+          <span aria-hidden="true">&#8592;</span>
+          <span>BACK TO PARTICIPANTS</span>
+        </button>
+        <button id="award-replay-button" type="button">
+          <span>REPLAY CELEBRATION</span>
+          <span aria-hidden="true">&#8635;</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         7. DSA EVIDENCE VERIFICATION CONSOLE (Deepanshu)
+         ========================================================= -->
+    <section id="screenshot-screen" class="screenshot-screen evidence-console" aria-labelledby="screenshot-title" hidden>
+      <div class="chase-badge console-badge">AUDIT PROTOCOL // TERMINAL v2.4</div>
+      <h2 id="screenshot-title">PROGRESS DETECTED.<br><span>SCREENSHOTS RECEIVED.</span></h2>
+      <p id="screenshot-subtitle" class="award-subtitle">Deepanshu is generally consistent with DSA and recently shared the requested screenshots.</p>
+
+      <!-- 4 Status Indicators -->
+      <div class="console-metrics-grid">
+        <div class="console-metric-card metric-positive">
+          <span class="metric-label">WORK HABIT</span>
+          <span class="metric-value">Generally consistent</span>
+          <span class="metric-sub">Effort observed</span>
+        </div>
+        <div class="console-metric-card metric-positive">
+          <span class="metric-label">SKIP HISTORY</span>
+          <span class="metric-value">Relatively low</span>
+          <span class="metric-sub">Steady effort recognised</span>
+        </div>
+        <div class="console-metric-card metric-pending">
+          <span class="metric-label">SUBMISSION STATUS</span>
+          <span class="metric-value">Screenshots shared</span>
+          <span class="metric-sub">Requested evidence received</span>
+        </div>
+        <div class="console-metric-card metric-alert">
+          <span class="metric-label">ADMIN VISIBILITY</span>
+          <span class="metric-value">Group replies needed</span>
+          <span class="metric-sub">More engagement in group messages</span>
+        </div>
+        
+      </div>
+
+      <!-- Verification Dashboard -->
+      <div class="console-dashboard">
+        <div class="console-top-bar">
+          <div class="console-signal"><span class="signal-dot"></span> SCANNER ACTIVE</div>
+          <div class="console-contrast">
+            <span class="contrast-item reported-pill">DSA EFFORT: CONSISTENT</span>
+            <span class="contrast-sep">&#8658;</span>
+            <span class="contrast-item verified-pill">SCREENSHOTS: RECEIVED</span>
+          </div>
+          <div class="console-sys-id">SYS://DSA-VERIFY-07</div>
+        </div>
+
+        <!-- Scanning Window with Simulated Progress Timeline & Empty Slots -->
+        <div class="console-scanner-frame">
+          <div class="scanner-sweep-line"></div>
+          
+          <div class="timeline-slots-container">
+            <div class="timeline-slot slot-verified">
+              <div class="slot-icon">&#10003;</div>
+              <div class="slot-info">
+                <span class="slot-title">PREVIOUS SESSIONS</span>
+              <span class="slot-desc">Requested screenshots shared</span>
+              </div>
+              <span class="slot-status-tag tag-verified">RECEIVED</span>
+            </div>
+
+            <div class="timeline-slot slot-verified" id="slot-recent">
+              <div class="slot-icon">&#10003;</div>
+              <div class="slot-info">
+              <span class="slot-title">RECENT SCREENSHOTS</span>
+              <span class="slot-desc">Requested screenshots received</span>
+              </div>
+              <span class="slot-status-tag tag-verified">RECEIVED</span>
+            </div>
+
+            <div class="timeline-slot slot-followup" id="slot-latest">
+              <div class="slot-icon">&#9993;</div>
+              <div class="slot-info">
+              <span class="slot-title">GROUP COMMUNICATION</span>
+              <span class="slot-desc">More reading and replies would help the group stay connected</span>
+              </div>
+              <span class="slot-status-tag tag-missing">FOLLOW-UP</span>
+            </div>
+          </div>
+
+          <!-- Progress Scan Bar & Terminal Log -->
+          <div class="console-scan-footer">
+            <div class="scan-progress-bar">
+              <div id="scan-progress-fill" class="scan-progress-fill"></div>
+            </div>
+            <div id="scan-status" class="scan-status">Initializing audit protocol...</div>
+          </div>
+
+          <!-- Two-Phase Visual Ending Reveals -->
+          <div id="console-incomplete-banner" class="console-stamp-banner stamp-verified" hidden>
+            <span class="stamp-icon">&#10003;</span>
+            <span class="stamp-text">REQUESTED SCREENSHOTS RECEIVED</span>
+          </div>
+          <div id="console-action-banner" class="console-stamp-banner stamp-action" hidden>
+            <span class="stamp-icon">&#10148;</span>
+            <span class="stamp-text">NEXT STEP: STAY PRESENT IN GROUP COMMUNICATION</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Explanatory Message Box -->
+      <div class="screenshot-message-box console-message-box">
+        <p class="console-main-msg">
+          Deepanshu is generally consistent with DSA, and he recently shared the requested screenshots. That effort is noticed and appreciated.<br>
+          The next step is group communication: messages are often left unread or unanswered, and a little more engagement helps everyone stay connected.
+        </p>
+        <div class="console-verdict-line">
+          <span class="status-pill status-pill-amber">STATUS: EVIDENCE RECEIVED</span>
+          <p class="supporting-text">DSA consistency is recognised; the remaining request is to stay engaged with group messages.</p>
+        </div>
+      </div>
+
+      <section id="deepanshu-communication-scene" class="deepanshu-communication-scene" aria-labelledby="deepanshu-communication-title" hidden>
+        <div class="communication-signal" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="communication-kicker">FINAL SCENE // GROUP CONNECTION</div>
+        <h3 id="deepanshu-communication-title">THE SCREENSHOTS ARRIVED.<br><span>NOW SEND A SIGNAL BACK.</span></h3>
+        <p class="communication-appreciation">Deepanshu, your DSA consistency is appreciated, and thank you for recently sharing the requested screenshots.</p>
+        <div class="communication-chat-card">
+          <span class="chat-status">GROUP CHAT // ENGAGEMENT REQUEST</span>
+          <p>You rarely read or reply to group messages, and your engagement in group communication has been limited. Reading updates and replying when asked helps the whole group stay in sync.</p>
+        </div>
+        <p class="communication-action"><strong>NEXT QUEST</strong> Read the group updates. Reply when someone asks. Let the team know you're here.</p>
+        <p class="communication-closing">Your DSA progress is visible. Let your voice in the group be visible too.</p>
+      </section>
+
+      <div class="final-actions">
+        <button id="screenshot-menu-button" class="secondary-button" type="button">
+          <span aria-hidden="true">&#8592;</span>
+          <span>BACK TO PARTICIPANTS</span>
+        </button>
+        <button id="screenshot-replay-button" type="button">
+          <span>RETRY VERIFICATION</span>
+          <span aria-hidden="true">&#8635;</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         8. FINAL VERDICT SCREEN (SPECIALIZED PER PARTICIPANT)
+         ========================================================= -->
+    <section id="final-screen" class="final-screen" aria-labelledby="final-title" hidden>
+      <div id="final-badge" class="chase-badge">STATUS: INVESTIGATION CONCLUDED</div>
+      <h2 id="final-title">WARNING COMPLETE.<br><span>DSA PROOF STILL PENDING!</span></h2>
+
+      <!-- A. KRISHNA CASE REVIEW CARD (Animated Case-File & Admin Verdict) -->
+      <div id="krishna-case-review" class="case-review-card" hidden>
+        <div class="review-header">
+          <div class="review-badge"><span class="status-dot"></span> OFFICIAL AUDIT PROTOCOL // CASE FILE #KR-01</div>
+          <h3 class="review-title">CASE REVIEW: KRISHNA</h3>
+          <p class="review-subtitle">Administrative audit regarding DSA consistency, commitments, and progress tracking.</p>
+        </div>
+
+        <!-- 4 Staggered Evidence Cards -->
+        <div class="evidence-grid">
+          <div class="evidence-card" style="--card-delay: 0.1s;">
+            <div class="evidence-tag">EVIDENCE #01</div>
+            <div class="evidence-title">&#9888; BACKLOG ALERT</div>
+            <p class="evidence-desc">A substantial amount of DSA work remained pending.</p>
+            <div class="evidence-status status-alert">STATUS: UNRESOLVED</div>
+          </div>
+
+          <div class="evidence-card" style="--card-delay: 0.3s;">
+            <div class="evidence-tag">EVIDENCE #02</div>
+            <div class="evidence-title">&#10006; COMMITMENT NOT COMPLETED</div>
+            <p class="evidence-desc">Promised work was not completed as agreed.</p>
+            <div class="evidence-status status-alert">STATUS: DEFAULTED</div>
+          </div>
+
+          <div class="evidence-card" style="--card-delay: 0.5s;">
+            <div class="evidence-tag">EVIDENCE #03</div>
+            <div class="evidence-title">&#128065; PROGRESS NOT VISIBLE</div>
+            <p class="evidence-desc">Repeated reminders to update LeetCode progress were not followed consistently.</p>
+            <div class="evidence-status status-alert">STATUS: NO TRACE</div>
+          </div>
+
+          <div class="evidence-card" style="--card-delay: 0.7s;">
+            <div class="evidence-tag">EVIDENCE #04</div>
+            <div class="evidence-title">&#128220; RULES NOT FOLLOWED</div>
+            <p class="evidence-desc">Group submission and tracking expectations were not met.</p>
+            <div class="evidence-status status-alert">STATUS: NON-COMPLIANT</div>
+          </div>
+        </div>
+
+        <!-- Final Verdict Panel -->
+        <div class="review-verdict-box">
+          <div class="verdict-tag">ADMINISTRATIVE SANCTION</div>
+          <h4 class="verdict-decision">FINAL DECISION: OFFICIALLY BANNED FROM THE DSA GROUP</h4>
+          <p class="verdict-supporting">Participation requires consistent effort, fulfilled commitments, and visible proof of progress.</p>
+          <div class="verdict-appeal-note">&#8505; Appeal Requirement: Clear backlog &amp; submit visible proof to Admin</div>
+        </div>
+      </div>
+
+      <!-- B. KANIKA THE STREAK TRAP (Streak vs. Learning Motivational Panel) -->
+      <div id="kanika-streak-trap" class="streak-trap-card" hidden>
+        <div class="streak-header">
+          <div class="streak-badge"><span class="status-dot"></span> LEARNING PROTOCOL // MINDSET SHIFT</div>
+          <h3 class="streak-title">THE STREAK TRAP</h3>
+          <p class="streak-subtitle">A coding streak is a tool for building consistency — not a reason to avoid attempting new problems.</p>
+        </div>
+
+        <!-- Visual Contrast: Old Streak Counter vs New Problem Waiting -->
+        <div class="streak-contrast-board">
+          <div class="contrast-col streak-frozen-col">
+            <span class="contrast-header-tag tag-warning">&#9888; THE FEAR</span>
+            <div class="streak-counter-box">
+              <span class="counter-number">14</span>
+              <span class="counter-unit">DAYS STREAK</span>
+            </div>
+            <div class="counter-label">OLD STREAK COUNTER</div>
+            <p class="counter-sub">Frozen in place: Revising old concepts out of fear of breaking the number.</p>
+            <span class="badge-lock">&#128274; PROTECTING A NUMBER</span>
+          </div>
+
+          <div class="contrast-divider">
+            <div class="divider-arrow">&#10148;</div>
+            <span class="divider-text">TRANSITION TO</span>
+          </div>
+
+          <div class="contrast-col streak-active-col">
+            <span class="contrast-header-tag tag-growth">&#10024; THE GROWTH</span>
+            <div class="new-problem-box">
+              <div class="problem-difficulty difficulty-easy">EASY QUESTION</div>
+              <span class="problem-action">&#9654; READY TO ATTEMPT</span>
+            </div>
+            <div class="counter-label">NEW PROBLEM WAITING</div>
+            <p class="counter-sub">Start with an easy question. Attempt it. Make mistakes and learn.</p>
+            <span class="badge-active">&#127775; ACTIVE PRACTICE</span>
+          </div>
+        </div>
+
+        <!-- Animated Progress Indicator: Moves Forward when Trying -->
+        <div class="learning-progress-container">
+          <div class="learning-progress-header">
+            <span>REAL GROWTH CYCLE</span>
+            <span class="progress-step-text">SOLVING &gt; PROTECTING NUMBER</span>
+          </div>
+          <div class="learning-steps-bar">
+            <div class="step-node active-step">1. ATTEMPT PROBLEM</div>
+            <div class="step-connector"></div>
+            <div class="step-node active-step">2. MAKE MISTAKES</div>
+            <div class="step-connector"></div>
+            <div class="step-node active-step">3. LEARN INSIGHT</div>
+            <div class="step-connector"></div>
+            <div class="step-node active-step">4. PROGRESS FORWARD</div>
+          </div>
+        </div>
+
+        <!-- Staged Core Motivational Sequence Cards -->
+        <div class="motivation-staged-grid">
+          <div class="m-card m-1">
+            <span class="m-num">01</span>
+            <p><strong>REVISION IS IMPORTANT.</strong></p>
+          </div>
+          <div class="m-card m-2">
+            <span class="m-num">02</span>
+            <p><strong>BUT FEAR OF LOSING A STREAK SHOULD NOT STOP YOU FROM TRYING.</strong></p>
+          </div>
+          <div class="m-card m-3">
+            <span class="m-num">03</span>
+            <p><strong>DSA IS LEARNED BY SOLVING — NOT BY WAITING UNTIL YOU KNOW EVERYTHING.</strong></p>
+          </div>
+          <div class="m-card m-4">
+            <span class="m-num">04</span>
+            <p><strong>START WITH AN EASY QUESTION. ATTEMPT IT. LEARN FROM YOUR MISTAKES. MOVE FORWARD.</strong></p>
+          </div>
+        </div>
+
+        <!-- Final Punchline Banner -->
+        <div class="motivation-punchline-box">
+          <div class="punchline-main">&#128161; YOU CAN'T IMPROVE AT A PROBLEM YOU NEVER ATTEMPT.</div>
+          <p class="punchline-sub">Consistency means showing up, attempting problems, and learning every day — not protecting a number at all costs.</p>
+        </div>
+      </div>
+
+      <!-- C. CLASSIC DOSSIER CARD (Preserved for Kshitij & General Simulation) -->
+      <div id="general-dossier-card" class="dossier-card" aria-label="Incident Summary Report">
+        <div class="dossier-header">
+          <span id="dossier-tag" class="dossier-tag">&#9679; CASE FILE #0404</span>
+          <span id="dossier-verdict" class="dossier-time">VERDICT: GUILTY OF SLACKING</span>
+        </div>
+        <div class="dossier-grid">
+          <div class="dossier-item">
+            <span class="d-label">DEFENDANT</span>
+            <span id="dossier-defendant" class="d-val">Procrastinating Student</span>
+          </div>
+          <div class="dossier-item">
+            <span class="d-label">ADMIN PATIENCE</span>
+            <span id="dossier-patience" class="d-val status-alert">0.00% (CRITICAL)</span>
+          </div>
+          <div class="dossier-item">
+            <span class="d-label">STREAK STATUS</span>
+            <span id="dossier-streak" class="d-val status-danger">BROKEN (0 DAYS)</span>
+          </div>
+          <div class="dossier-item">
+            <span class="d-label">REQUIRED ACTION</span>
+            <span id="dossier-action" class="d-val status-action">Solve 1 LeetCode Problem</span>
+          </div>
+        </div>
+        <section id="kshitij-accountability" class="accountability-panel" aria-labelledby="kshitij-accountability-title" hidden>
+          <div class="accountability-kicker">FOLLOW-UP REQUIRED // PROGRESS VERIFICATION</div>
+          <h3 id="kshitij-accountability-title">Kshitij Rajput — I expected better from you.</h3>
+          <div class="verification-contrast" aria-label="Reported work must be supported by visible evidence">
+            <div><span>WORK REPORTED</span><strong>Code and screenshots have been requested</strong></div>
+            <div><span>WORK VERIFIED</span><strong>Activity visibility is unconfirmed; proof is pending</strong></div>
+          </div>
+          <p id="kshitij-accountability-body"></p>
+          <p class="accountability-action"><strong>ACTION REQUIRED</strong><span id="kshitij-accountability-action"></span></p>
+          <p id="kshitij-accountability-close" class="accountability-close"></p>
+        </section>
+      </div>
+
+      <div class="final-actions">
+        <button id="back-participants-button" class="secondary-button" type="button">
+          <span aria-hidden="true">&#8592;</span>
+          <span>BACK TO PARTICIPANTS</span>
+        </button>
+        <button id="play-again-button" type="button">
+          <span>PLAY AGAIN</span>
+          <span aria-hidden="true">&#8635;</span>
+        </button>
+        <button id="back-home-button" class="secondary-button" type="button">
+          <span>HOME SCREEN</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         CHARACTER TEMPLATES (FEMALE CHARACTERS & FRIENDLY AWARD ADMIN)
+         ========================================================= -->
+    <div id="character-templates" style="display:none;" aria-hidden="true">
+      <!-- 1. FEMALE RUNNER (Used for Kanika in Chase & Kick Ending) -->
+      <svg id="female-runner-svg" class="chase-character female-character" viewBox="0 0 100 130">
+        <ellipse class="char-shadow" cx="50" cy="124" rx="28" ry="5" fill="#000000" opacity="0.45"/>
+        <!-- Back leg running -->
+        <path d="M42 84 L26 106 L12 112" fill="none" stroke="#6b21a8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M8 110 L18 110 L20 115 L8 115 Z" fill="#ec4899" stroke="#0f172a" stroke-width="1.8"/>
+        <!-- Back arm -->
+        <path d="M36 60 L18 48 L10 56" fill="none" stroke="#fcd34d" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Cute purple sling pack / bag -->
+        <rect x="22" y="58" width="12" height="22" rx="4" fill="#581c87" stroke="#3b0764" stroke-width="2"/>
+        <path d="M26 63 L30 63" stroke="#f472b6" stroke-width="2" stroke-linecap="round"/>
+        <!-- Feminine Fitted Hoodie / Top -->
+        <path d="M35 54 L28 88 L72 88 L65 54 Z" fill="#a855f7" stroke="#7e22ce" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M39 74 L61 74 L57 84 L43 84 Z" fill="#9333ea"/>
+        <!-- Shirt Badge -->
+        <rect x="34" y="60" width="32" height="11" rx="3" fill="#0f172a" stroke="#f472b6" stroke-width="1.5"/>
+        <text id="participant-shirt-badge" x="50" y="68" text-anchor="middle" font-family="monospace" font-size="6.5" font-weight="900" fill="#f472b6">KANIKA</text>
+        <!-- Front leg running -->
+        <path d="M58 84 L72 102 L88 106" fill="none" stroke="#7e22ce" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M84 104 L96 104 L98 109 L83 109 Z" fill="#ec4899" stroke="#0f172a" stroke-width="1.8"/>
+
+        <!-- CLEARLY VISIBLE PROMINENT HIGH PONYTAIL (STREAMING IN WIND) -->
+        <g class="character-ponytail" aria-hidden="true">
+          <path d="M32 24 C16 10, 4 14, 4 26 C4 40, 14 52, 22 50 C26 44, 24 34, 28 26 Z" fill="#2d1710" stroke="#120804" stroke-width="2.2" stroke-linejoin="round"/>
+          <path d="M22 18 C12 14, 8 22, 8 30 C8 38, 14 44, 18 44" fill="none" stroke="#5a3422" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- Purple & Magenta Scrunchie Tie -->
+          <circle cx="32" cy="24" r="5" fill="#a855f7"/>
+          <ellipse cx="30" cy="19" rx="4" ry="2.5" fill="#ec4899" transform="rotate(-25 30 19)"/>
+          <ellipse cx="35" cy="20" rx="4" ry="2.5" fill="#ec4899" transform="rotate(25 35 20)"/>
+        </g>
+
+        <!-- Neck & Head -->
+        <rect x="47" y="46" width="7" height="9" fill="#fcd34d"/>
+        <ellipse cx="52" cy="37" rx="16" ry="15" fill="#fcd34d" stroke="#b45309" stroke-width="2.5"/>
+        <!-- Cheeks Blush -->
+        <ellipse cx="40" cy="42" rx="3" ry="2" fill="#f472b6" opacity="0.65"/>
+        <ellipse cx="62" cy="42" rx="3" ry="2" fill="#f472b6" opacity="0.65"/>
+        <!-- Feminine Hair Front & Bangs -->
+        <path d="M36 34 C36 20, 52 14, 68 22 C72 26, 71 35, 68 38 C64 28, 54 24, 42 27 C38 29, 36 32, 36 34 Z" fill="#2d1710" stroke="#120804" stroke-width="2"/>
+        <path d="M42 26 C46 32, 54 32, 58 26" fill="none" stroke="#2d1710" stroke-width="2.5"/>
+        <path d="M34 35 L33 46 M68 36 L70 47" stroke="#2d1710" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- Feminine Eyes with Eyelashes Looking Back -->
+        <ellipse cx="44" cy="36" rx="5" ry="6" fill="#ffffff" stroke="#0f172a" stroke-width="1.5"/>
+        <circle cx="41.5" cy="36" r="2.2" fill="#0f172a"/>
+        <path d="M40 31 L37 28 M44 30 L43 27 M48 31 L50 28" stroke="#0f172a" stroke-width="1.6" stroke-linecap="round"/>
+        <ellipse cx="58" cy="36" rx="5" ry="6" fill="#ffffff" stroke="#0f172a" stroke-width="1.5"/>
+        <circle cx="55.5" cy="36" r="2.2" fill="#0f172a"/>
+        <path d="M54 31 L52 28 M58 30 L58 27 M62 31 L65 28" stroke="#0f172a" stroke-width="1.6" stroke-linecap="round"/>
+        <!-- Eyebrows & Surprised mouth -->
+        <path d="M40 28 Q44 25 48 28 M54 28 Q58 25 62 28" fill="none" stroke="#78350f" stroke-width="1.8" stroke-linecap="round"/>
+        <ellipse cx="49" cy="46" rx="5.5" ry="4.5" fill="#7f1d1d" stroke="#450a0a" stroke-width="1.5"/>
+        <path d="M46 48 Q49 46 52 48" stroke="#f43f5e" stroke-width="1.5"/>
+        <!-- Front Arm swinging -->
+        <path d="M66 58 L82 48 L94 56" fill="none" stroke="#fcd34d" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+
+      <!-- 2. FEMALE AWARD RECIPIENT (Used for Avantika in Award Celebration) -->
+      <svg id="female-award-svg" class="award-character female-character" viewBox="0 0 100 130">
+        <ellipse class="char-shadow" cx="50" cy="124" rx="28" ry="5" fill="#000000" opacity="0.45"/>
+        <!-- Calm standing legs -->
+        <path d="M42 85 L40 112" fill="none" stroke="#3730a3" stroke-width="6.5" stroke-linecap="round"/>
+        <path d="M34 110 L44 110 L45 116 L33 116 Z" fill="#ec4899" stroke="#0f172a" stroke-width="1.8"/>
+        <path d="M58 85 L60 112" fill="none" stroke="#4338ca" stroke-width="6.5" stroke-linecap="round"/>
+        <path d="M56 110 L66 110 L67 116 L55 116 Z" fill="#ec4899" stroke="#0f172a" stroke-width="1.8"/>
+
+        <!-- CLEARLY VISIBLE PROMINENT HIGH PONYTAIL WITH RIBBON BOW -->
+        <g class="participant-ponytail" aria-hidden="true">
+          <!-- Flowing ponytail body extending outward and downward -->
+          <path d="M30 22 C16 10, 4 14, 4 28 C4 44, 12 58, 20 64 C24 58, 22 44, 28 32 C30 28, 30 25, 30 22 Z" fill="#2d1710" stroke="#120804" stroke-width="2.2" stroke-linejoin="round"/>
+          <path d="M22 18 C14 14, 8 22, 8 32 C8 42, 14 52, 18 56" fill="none" stroke="#5a3422" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- Bright pink scrunchie / ribbon bow -->
+          <circle cx="30" cy="22" r="5" fill="#f43f5e"/>
+          <ellipse cx="27" cy="17" rx="4.5" ry="3" fill="#ec4899" transform="rotate(-30 27 17)"/>
+          <ellipse cx="33" cy="17" rx="4.5" ry="3" fill="#ec4899" transform="rotate(30 33 17)"/>
+          <circle cx="30" cy="17" r="2.2" fill="#fbcfe8"/>
+        </g>
+
+        <!-- Stylish Fitted Pink Jacket / Top -->
+        <path d="M34 52 L28 86 L72 86 L66 52 Z" fill="#ec4899" stroke="#be185d" stroke-width="3" stroke-linejoin="round"/>
+        <polygon points="44,52 56,52 50,64" fill="#ffffff"/>
+        <!-- Shirt Badge -->
+        <rect x="33" y="65" width="34" height="11" rx="3" fill="#0f172a" stroke="#f472b6" stroke-width="1.5"/>
+        <text id="participant-shirt-badge" x="50" y="73" text-anchor="middle" font-family="monospace" font-size="6.5" font-weight="900" fill="#f472b6">AVANTIKA</text>
+        <!-- Arms held forward ready to receive bouquet -->
+        <g class="award-recipient-arms">
+          <path d="M32 58 L24 72 L38 78" fill="none" stroke="#fcd34d" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="38" cy="78" r="4" fill="#fcd34d"/>
+          <path d="M68 58 L76 72 L62 78" fill="none" stroke="#fcd34d" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="62" cy="78" r="4" fill="#fcd34d"/>
+        </g>
+        <!-- Neck & Head -->
+        <rect x="47" y="44" width="7" height="9" fill="#fcd34d"/>
+        <ellipse cx="50" cy="35" rx="16" ry="15" fill="#fcd34d" stroke="#b45309" stroke-width="2.5"/>
+        <!-- Cheerful Rosy Blush -->
+        <circle cx="38" cy="40" r="3.5" fill="#f472b6" opacity="0.65"/>
+        <circle cx="62" cy="40" r="3.5" fill="#f472b6" opacity="0.65"/>
+        <!-- Chic hair bangs -->
+        <path d="M34 30 C34 16, 52 12, 66 18 C68 26, 65 34, 65 34 C58 24, 48 22, 34 30 Z" fill="#2d1710"/>
+        <path d="M40 24 C44 30, 56 30, 60 24" fill="none" stroke="#2d1710" stroke-width="2.5"/>
+        <!-- Happy cartoon eyes with feminine eyelashes and sparkles -->
+        <ellipse cx="43" cy="34" rx="4.5" ry="5.5" fill="#ffffff" stroke="#0f172a" stroke-width="1.5"/>
+        <circle cx="44" cy="34" r="2.2" fill="#0f172a"/>
+        <circle cx="45" cy="33" r="0.9" fill="#ffffff"/>
+        <path d="M39 30 L37 27 M43 29 L43 26 M47 30 L49 27" stroke="#0f172a" stroke-width="1.5" stroke-linecap="round"/>
+        <ellipse cx="57" cy="34" rx="4.5" ry="5.5" fill="#ffffff" stroke="#0f172a" stroke-width="1.5"/>
+        <circle cx="56" cy="34" r="2.2" fill="#0f172a"/>
+        <circle cx="57" cy="33" r="0.9" fill="#ffffff"/>
+        <path d="M53 30 L51 27 M57 29 L57 26 M61 30 L63 27" stroke="#0f172a" stroke-width="1.5" stroke-linecap="round"/>
+        <!-- Sweet happy curved eyebrows & Confident Beaming smile -->
+        <path d="M39 26 Q43 23 47 26 M53 26 Q57 23 61 26" fill="none" stroke="#78350f" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M44 42 Q50 49 56 42" fill="#7f1d1d" stroke="#0f172a" stroke-width="1.5"/>
+        <path d="M46 43 Q50 45 54 43" fill="#ffffff"/>
+      </svg>
+
+      <!-- 3. MALE AWARD RECIPIENT (Used for Kartik & Tanmay in Award Celebration) -->
+      <svg id="male-award-svg" class="award-character male-award-character" viewBox="0 0 100 130">
+        <ellipse class="char-shadow" cx="50" cy="124" rx="28" ry="5" fill="#000000" opacity="0.45"/>
+        <!-- Calm standing legs -->
+        <path d="M42 85 L40 112" fill="none" stroke="#1e3a8a" stroke-width="7" stroke-linecap="round"/>
+        <path d="M34 110 L44 110 L45 116 L33 116 Z" fill="#facc15" stroke="#0f172a" stroke-width="1.8"/>
+        <path d="M58 85 L60 112" fill="none" stroke="#1e40af" stroke-width="7" stroke-linecap="round"/>
+        <path d="M56 110 L66 110 L67 116 L55 116 Z" fill="#ef4444" stroke="#0f172a" stroke-width="1.8"/>
+        <!-- Casual Hoodie -->
+        <path d="M34 52 L28 86 L72 86 L66 52 Z" fill="#3b82f6" stroke="#1d4ed8" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M40 72 L60 72 L57 82 L43 82 Z" fill="#2563eb"/>
+        <!-- Shirt Badge -->
+        <rect x="34" y="58" width="32" height="11" rx="3" fill="#0f172a" stroke="#facc15" stroke-width="1.5"/>
+        <text id="participant-shirt-badge" x="50" y="66" text-anchor="middle" font-family="monospace" font-size="6.5" font-weight="900" fill="#facc15">TOP DSA</text>
+        <!-- Arms held out proudly to receive bouquet -->
+        <g class="award-recipient-arms">
+          <path d="M32 58 L24 72 L38 78" fill="none" stroke="#fcd34d" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="38" cy="78" r="4.5" fill="#fcd34d"/>
+          <path d="M68 58 L76 72 L62 78" fill="none" stroke="#fcd34d" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="62" cy="78" r="4.5" fill="#fcd34d"/>
+        </g>
+        <!-- Neck & Head -->
+        <rect x="46" y="44" width="8" height="9" fill="#fcd34d"/>
+        <ellipse cx="50" cy="35" rx="16" ry="15" fill="#fcd34d" stroke="#b45309" stroke-width="2.5"/>
+        <!-- Cheerful Rosy Blush -->
+        <circle cx="38" cy="40" r="3" fill="#f87171" opacity="0.5"/>
+        <circle cx="62" cy="40" r="3" fill="#f87171" opacity="0.5"/>
+        <!-- Neat Cool Hair -->
+        <path d="M34 32 C34 18, 52 14, 66 20 C68 28, 64 36, 64 36 C58 26, 48 24, 34 32 Z" fill="#334155"/>
+        <path d="M42 20 L38 12 L48 18 M54 16 L58 10 L61 18" stroke="#334155" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- Happy cartoon eyes with sparkles -->
+        <ellipse cx="43" cy="34" rx="4.5" ry="5.5" fill="#ffffff" stroke="#0f172a" stroke-width="1.5"/>
+        <circle cx="44" cy="34" r="2.2" fill="#0f172a"/>
+        <circle cx="45" cy="33" r="0.9" fill="#ffffff"/>
+        <ellipse cx="57" cy="34" rx="4.5" ry="5.5" fill="#ffffff" stroke="#0f172a" stroke-width="1.5"/>
+        <circle cx="56" cy="34" r="2.2" fill="#0f172a"/>
+        <circle cx="57" cy="33" r="0.9" fill="#ffffff"/>
+        <!-- Happy eyebrows & Proud smile -->
+        <path d="M39 26 Q43 23 47 26 M53 26 Q57 23 61 26" fill="none" stroke="#78350f" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M43 42 Q50 50 57 42" fill="#7f1d1d" stroke="#0f172a" stroke-width="1.5"/>
+        <path d="M45 43 Q50 46 55 43" fill="#ffffff"/>
+      </svg>
+
+      <!-- 4. FRIENDLY CELEBRATORY AWARD ADMIN (Carrying Bouquet with Both Hands - NO WEAPONS) -->
+      <svg id="award-admin-svg" class="award-admin-character" viewBox="0 0 100 130">
+        <ellipse class="char-shadow" cx="50" cy="124" rx="30" ry="5.5" fill="#000000" opacity="0.45"/>
+        <!-- Walking / Standing Legs -->
+        <g class="admin-award-legs">
+          <path class="admin-leg-back" d="M42 85 L36 112" fill="none" stroke="#0f172a" stroke-width="8" stroke-linecap="round"/>
+          <path d="M30 110 L44 110 L46 116 L28 116 Z" fill="#020617"/>
+          <path class="admin-leg-front" d="M58 85 L64 112" fill="none" stroke="#1e293b" stroke-width="8" stroke-linecap="round"/>
+          <path d="M58 110 L72 110 L74 116 L56 116 Z" fill="#020617"/>
+        </g>
+        <!-- Sharp Tailored Admin Suit -->
+        <path d="M32 50 L26 86 L74 86 L68 50 Z" fill="#1e293b" stroke="#0f172a" stroke-width="3" stroke-linejoin="round"/>
+        <polygon points="44,50 56,50 50,66" fill="#f8fafc"/>
+        <!-- Themed Silk Tie (Customized via JS/CSS) -->
+        <polygon class="admin-suit-tie" points="48,56 52,56 54,76 50,82 46,76" fill="#f59e0b"/>
+        <!-- Admin Star Lapel Badge -->
+        <polygon points="62,56 65,54 67,59 64,62 60,59" fill="#facc15" stroke="#ca8a04" stroke-width="1"/>
+        <!-- Both arms extended forward carrying bouquet with both hands! NO WEAPONS! -->
+        <g class="admin-bouquet-arms">
+          <path d="M34 56 L46 66 L56 64" fill="none" stroke="#fcd34d" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="56" cy="64" r="4.5" fill="#fcd34d"/>
+          <path d="M66 56 L60 66 L52 65" fill="none" stroke="#fcd34d" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="52" cy="65" r="4.5" fill="#fcd34d"/>
+        </g>
+        <!-- Neck & Head -->
+        <rect x="46" y="42" width="8" height="9" fill="#fcd34d"/>
+        <ellipse cx="50" cy="33" rx="16" ry="15" fill="#fcd34d" stroke="#b45309" stroke-width="2.5"/>
+        <!-- Warm Friendly Rosy Blush -->
+        <circle cx="38" cy="38" r="3" fill="#f87171" opacity="0.45"/>
+        <circle cx="62" cy="38" r="3" fill="#f87171" opacity="0.45"/>
+        <!-- Slick Professional Hair -->
+        <path d="M34 30 C34 16, 52 12, 66 18 C68 26, 64 34, 64 34 C58 24, 48 22, 34 30 Z" fill="#0f172a"/>
+        <!-- Friendly Warm Eyebrows (Curved upward and welcoming, NOT angry!) -->
+        <path d="M38 24 Q43 21 48 24 M52 24 Q57 21 62 24" fill="none" stroke="#0f172a" stroke-width="2.2" stroke-linecap="round"/>
+        <!-- Friendly Warm Eyes (Clear white with pupils and sparkle, NO red rage!) -->
+        <ellipse cx="43" cy="31" rx="4.5" ry="5.5" fill="#ffffff" stroke="#0f172a" stroke-width="1.5"/>
+        <circle cx="44" cy="31" r="2.2" fill="#0f172a"/>
+        <circle cx="45" cy="30" r="0.9" fill="#ffffff"/>
+        <ellipse cx="57" cy="31" rx="4.5" ry="5.5" fill="#ffffff" stroke="#0f172a" stroke-width="1.5"/>
+        <circle cx="56" cy="31" r="2.2" fill="#0f172a"/>
+        <circle cx="57" cy="30" r="0.9" fill="#ffffff"/>
+        <!-- Broad, Proud, Welcoming Smile! -->
+        <path d="M42 40 Q50 49 58 40" fill="#7f1d1d" stroke="#0f172a" stroke-width="1.5"/>
+        <path d="M44 41 Q50 44 56 41" fill="#ffffff"/>
+      </svg>
+    </div>
+
+    <!-- Floating Audio Toggle -->
+    <button id="audio-toggle" class="audio-toggle" type="button" aria-label="Mute sound" aria-pressed="false">SOUND ON</button>
+
+    <footer>One Question. One Concept. One Day at a Time.</footer>
+    <div class="corner-mark" aria-hidden="true">DSA / 001</div>
+  </main>
+</body>
+</html>
