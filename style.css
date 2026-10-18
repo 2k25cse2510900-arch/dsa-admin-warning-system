@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   color-scheme: dark;
   --ink: #0c0d12;
   --ink-deep: #06070a;
@@ -66,10 +66,7 @@ body::before {
   display: none !important;
 }
 
-<<<<<<< HEAD
 .landing.sequence-active .decision-center,
-=======
->>>>>>> origin/main
 .landing.sequence-active .warning-card,
 .landing.sequence-active footer,
 .landing.sequence-active .corner-mark {
@@ -1390,7 +1387,6 @@ footer {
 }
 
 /* =========================================================
-<<<<<<< HEAD
    6A. DECISION CENTER (7-PARTICIPANT SELECTION MENU)
    ========================================================= */
 .decision-center {
@@ -2944,8 +2940,6 @@ footer {
 }
 
 /* =========================================================
-=======
->>>>>>> origin/main
    7. RESPONSIVENESS & ACCESSIBILITY
    ========================================================= */
 @media (max-width: 600px) {
@@ -2954,7 +2948,6 @@ footer {
   .warning-card { padding: 32px 18px; }
   .dossier-grid { grid-template-columns: 1fr; }
   .final-actions { flex-direction: column; align-items: stretch; }
-<<<<<<< HEAD
   .console-metrics-grid { grid-template-columns: 1fr; }
   .timeline-slots-container { grid-template-columns: 1fr; }
   .streak-contrast-board { grid-template-columns: 1fr; gap: 12px; }
@@ -2963,8 +2956,6 @@ footer {
   .step-connector { width: 2px; height: 10px; margin: 0 auto; }
   .evidence-grid { grid-template-columns: 1fr; }
   .motivation-staged-grid { grid-template-columns: 1fr; }
-=======
->>>>>>> origin/main
   .chase-scene { height: 215px; }
   .chase-character { width: 74px; height: 98px; }
   .ending-art { height: 215px; }
@@ -2977,14 +2968,11 @@ footer {
   .kick-impact-burst { padding: 4px 10px; }
   .arrow-impact-burst { font-size: 32px; }
   .audio-toggle { top: 12px; right: 12px; min-height: 34px; font-size: 10px; padding: 0 12px; }
-<<<<<<< HEAD
   .participants-grid { grid-template-columns: 1fr; gap: 12px; }
   .participant-card { min-height: auto; padding: 16px 14px; }
   .award-art, .screenshot-art { height: 230px; }
   .award-admin-host, .screenshot-admin-host, .award-participant-host, .screenshot-participant-host { width: 74px; height: 98px; bottom: 20px; }
   .bouncing-heart { font-size: 32px; top: 14%; right: 14%; }
-=======
->>>>>>> origin/main
   footer { bottom: 18px; font-size: 11px; max-width: 80%; line-height: 1.4; }
   .corner-mark { right: 12px; bottom: 18px; font-size: 9px; }
 }
@@ -2997,7 +2985,6 @@ footer {
     animation-iteration-count: 1 !important;
   }
 }
-<<<<<<< HEAD
 
 /* Personalized story path and Kshitij's final evidence request. */
 .award-screen.award-theme-gold { --story-accent: #facc15; }
@@ -3129,5 +3116,3 @@ footer {
   .accountability-panel { padding: 16px; }
   .award-story { font-size: 10px; }
 }
-=======
->>>>>>> origin/main
